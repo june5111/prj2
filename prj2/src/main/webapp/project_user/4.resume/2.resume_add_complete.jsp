@@ -65,7 +65,7 @@
  
 </head>
 <%
-File saveDirectory = new File("E:/dev/workspace/prj3/src/main/webapp/upload");
+File saveDirectory = new File("C:/Users/user/git/prj2/prj2/src/main/webapp/upload");
 int totalMaxSize=1024*1024*10;
 MultipartRequest mr = new MultipartRequest(request,saveDirectory.getAbsolutePath(), totalMaxSize, "UTF-8", new DefaultFileRenamePolicy());
 

@@ -29,7 +29,7 @@
 	
 	
 	// 1. 저장 디렉토리를 설정
-	String saveDirectoryPath = "E:/dev/workspace/prj3/src/main/webapp/upload/";
+	String saveDirectoryPath = "C:/Users/user/git/prj2/prj2/src/main/webapp/upload";
 
 	// 사용자 디렉토리 경로 설정
 	//File userDirectory = new File(saveDirectoryPath, userId);
