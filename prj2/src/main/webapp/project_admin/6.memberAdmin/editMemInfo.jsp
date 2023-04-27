@@ -240,10 +240,10 @@ function img() {
 		<div id="gnb">
 	
 			<!--// 개인회원 -->
-			<h1><a class="logo" href="#void"><img alt="데브플래닛" src="http://localhost/prj3/project_admin/images/devplanet_logo.png"></a>
+			<h1><a class="logo" href="#void"><img alt="데브플래닛" src="http://localhost/prj2/project_admin/images/devplanet_logo.png"></a>
 			<span class="bar"></span><span style="font-size:23px">&nbsp;회원정보 수정</span>
 			</h1>
-			<a id="main_page" href="http://localhost/prj3/project_admin/1.mainAdmin/main.jsp">메인페이지</a>
+			<a id="main_page" href="http://localhost/prj2/project_admin/1.mainAdmin/main.jsp">메인페이지</a>
 		</div>
 	</div>
 </div>
@@ -268,7 +268,7 @@ function img() {
 	%>
 		<div id="content">
 			<h1 class="skip"><!-- 회원정보 수정 --></h1>
-<!--폼태그 --><form action="http://localhost/prj3/project_admin/6.memberAdmin/edit_process.jsp?user_id=<%= userId %>" id="frm" name="frm" method="post" enctype="multipart/form-data">
+<!--폼태그 --><form action="http://localhost/prj2/project_admin/6.memberAdmin/edit_process.jsp?user_id=<%= userId %>" id="frm" name="frm" method="post" enctype="multipart/form-data">
 				<div class="mbrSec mbrMngInfo">
 					<h2 class="mbrHeading2"><span>기본정보 수정</span></h2>
 					<div class="mbrTplDesc">
@@ -310,7 +310,7 @@ function img() {
 						<div class="imgDiv">
 						<br>
 						<div id="profile">
-							<img id="profile" src="http://localhost/prj3/upload/<%= auVO.getImg() %>" onerror="this.src='http://localhost/prj3/upload/no.png'"/>
+							<img id="profile" src="http://localhost/prj2/upload/<%= auVO.getImg() %>" onerror="this.src='http://localhost/prj2/upload/no.png'"/>
 						</div>
 						<br/>
 						<label class="input-file-button" for="file" onclick="img()">
@@ -330,7 +330,7 @@ function img() {
 				<p class="mbrBtnFunc" style="text-align:center">
 					<span class="mbrBtn mbrBtnModify_1"><a id="modifyBtn" style="cursor:pointer;"><span>저장하기</span></a></span>
 					<span class="mbrBtn mbrBtnCancel_1">
-					<input type="button" id="cancelBtn" onclick="location.href='http://localhost/prj3/project_admin/6.memberAdmin/member_manage.jsp'"><span>취소</span></span>
+					<input type="button" id="cancelBtn" onclick="location.href='http://localhost/prj2/project_admin/6.memberAdmin/member_manage.jsp'"><span>취소</span></span>
 				</p>
 <!--폼태그 -->	</form>
 		</div>

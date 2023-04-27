@@ -34,6 +34,6 @@ ResumeDAO rDAO = new ResumeDAO();
 	dispatcher.forward(request, response);  */ 
 	
 	/* // redirect
-	String url = "http://localhost/prj3/project_user/4.resume/1.resume_add.jsp";
+	String url = "http://localhost/prj2/project_user/4.resume/1.resume_add.jsp";
 	response.sendRedirect(url); */
 %>

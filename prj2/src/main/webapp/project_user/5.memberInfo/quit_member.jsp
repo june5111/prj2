@@ -10,7 +10,7 @@
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>비밀번호 확인</title>
+<title>회원 탈퇴</title>
 
 
 <!--////////////////////////////////css///////////////////////////////////////////////////////////////////////////  -->
@@ -45,8 +45,10 @@
 $(function() {
 	
 	$("#okBtn").click(function(){
-	
+		if(confirm("회원 탈퇴시 아이디는 복구가 불가능합니다. 탈퇴 하시겠습니까?")) {
+			
 		$("#con_frm").submit();
+		}//end if
 		
 	});//click
 	
@@ -92,9 +94,9 @@ $(function() {
 			<!-- <br><br><br> -->
 			<div class="secNav">
 				<ol>
-					<li class="mn1"><a href=""><span class="span"></span>개인정보 수정</a></li>
+					<li class="mn1"><a href=""><span></span>개인정보 수정</a></li>
 					<li class="mn2"><a href="http://localhost/prj2/project_user/5.memberInfo/3.confirmPass.jsp"><span></span>비밀번호변경</a></li>
-					<li class="mn3 end"><a href="/Customer_C/ETC/CC_leave.asp?Customer_C_Oem_No=1" target="_blank"><span></span>회원탈퇴</a></li>
+					<li class="mn3 end"><a href="/Customer_C/ETC/CC_leave.asp?Customer_C_Oem_No=1" target="_blank"><span class="span"></span>회원탈퇴</a></li>
 					<!-- <li class="mn4"><a href="/Text_User/User_Mailing_Mng.asp?OEM_No=1"><span></span>메일링/문자메시지 설정</a></li>
 					<li class="mn3 end"><a href="/Customer_C/ETC/CC_leave.asp?Customer_C_Oem_No=1" target="_blank"><span></span>회원탈퇴</a></li> -->
 				</ol>
@@ -110,14 +112,14 @@ $(function() {
 	<!--// Contents Area -->
 	<div id="container">
 		<div id="content">
-			<form id="con_frm" name="con_frm" method="post" action="http://localhost/prj2/project_user/5.memberInfo/confirmInfo_process.jsp">
+			<form id="con_frm" name="con_frm" method="post" action="http://localhost/prj2/project_user/5.memberInfo/quit_member_process.jsp">
 <!--skip은 안보임  -->	<h1 class="skip"><!--비밀번호 확인--></h1>
 			<fieldset>
 				<!-- <legend>비밀번호 확인 정보 입력폼</legend> -->
 				<div class="mbrSec mbrMngPWD">
-					<h2 class="mbrHeading2"><img src="http://localhost/prj2/project_user/images/mbr_h_mng_pwd.gif" alt="비밀번호 확인"></h2>
+					<h2 class="mbrHeading2">지금까지 이용해주셔서 감사 드립니다. 탈퇴하기 전 아래 유의사항을 확인해주세요.</h2>
 					<div class="mbrTplDesc">
-						<p>회원님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한 번 입력해 주세요.</p>
+						<p>탈퇴하신 아이디는 복구가 불가능하며, 추후 동일한 아이디로 재가입이 되지 않습니다.</p>
 					</div>
 
 					<div class="mbrTplData2">
@@ -134,10 +136,10 @@ $(function() {
 								</td>
 							</tr>
 							<tr>
-								<th scope="row"><label for="lb_pw_1">비밀번호</label></th>
+								<th scope="row"><label for="lb_pw_1">탈퇴신청자</label></th>
 								<td>
 									<div class="mbrHelpWrap">		
-										<input type="password" id="pass" name="pass" style="width:200px;" class="ipText" maxlength="20" onKeyPress="if(event.keyCode==13) Pwd_ChkReg();" onkeydown="blank_key_check()">
+										<input type="text" id="quit" name="quit" style="width:200px;" class="ipText" maxlength="20" onKeyPress="if(event.keyCode==13) Pwd_ChkReg();" onkeydown="blank_key_check()">
 										<div style="left:215px;display:none;" class="mbrTplLayer mbrTplLayer_1 mbrLayerHelp" id="CautionResult1" name="CautionResult">
 											<span class="arrow"></span>
 										</div>
@@ -150,7 +152,7 @@ $(function() {
 				</div>
 				<hr>
 				<p class="mbrBtnFunc">
-					<span class="mbrBtn mbrBtnOk_3"><button type="button" id="okBtn" name="okBtn" ><span>확인</span></button></span>
+					<span class="mbrBtn mbrBtnOk_3"><button type="button" id="okBtn" name="okBtn" ><span>탈퇴하기</span></button></span>
 					<span class="mbrBtn mbrBtnCancel_1"><button type="button" onclick="location.href='http://localhost/prj2/project_user/1.main/main_page_loged.jsp'"><span>취소</span></button></span>
 				</p>
 			</fieldset>

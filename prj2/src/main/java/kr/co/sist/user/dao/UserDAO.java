@@ -1,5 +1,8 @@
 package kr.co.sist.user.dao;
 
+import java.io.UnsupportedEncodingException;
+import java.security.GeneralSecurityException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,6 +18,7 @@ import kr.co.sist.user.vo.ModifiyPassVO;
 import kr.co.sist.user.vo.NewVO;
 import kr.co.sist.user.vo.ResetPassVO;
 import kr.co.sist.user.vo.ResultIdVO;
+import kr.co.sist.util.cipher.DataEncrypt;
 
 public class UserDAO {
 	
@@ -377,8 +381,39 @@ public class UserDAO {
 	}//updateUserPass
 	
 	//È¸¿ø Å»Åð
-	public int updateQuit(String id) {
+	public int updateQuit(String id, String name)throws SQLException, UnsupportedEncodingException, NoSuchAlgorithmException, GeneralSecurityException {
 		int result=0;
+		
+		DbConnection dbCon=DbConnection.getInstance();
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		
+		DataEncrypt de=new DataEncrypt("FsRt4SfY4US0IWtK4JPJsw==");
+		String nameData = de.encryption(name);
+		
+		try {
+			
+			con=dbCon.getConn();
+			
+			StringBuilder updatePass = new StringBuilder();
+			updatePass
+			.append("   update user_table ")
+			.append("   set name='NA', pass='NA', email='NA', tel='NA', zipcode='NA', addr='NA',detail_addr='NA', terms='NA', "
+					+ "reg_date='0000-00-00', birth_date='0000-00-00', img='NA', gender=null, quit_date=sysdate ")
+			.append("   where user_id=? and name=? ");
+			
+			pstmt=con.prepareStatement(updatePass.toString());
+			
+			pstmt.setString(1, id);
+			pstmt.setString(2, nameData);
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			dbCon.dbClose(null, pstmt, con);
+			
+		}//end finally
+		
 		return result;
 	}//updateQuit
 	

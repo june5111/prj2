@@ -71,7 +71,7 @@ try{
 	
 	out.println("<script>");
     out.println("alert('기업이 등록되었습니다.');");
-    out.println("location.href = 'http://localhost/prj3/project_admin/2.corpInfo/company_info.jsp';"); // 수정 후 이동할 페이지 경로
+    out.println("location.href = 'http://localhost/prj2/project_admin/2.corpInfo/company_info.jsp';"); // 수정 후 이동할 페이지 경로
     out.println("</script>"); 
 
 }catch(SQLException se) {

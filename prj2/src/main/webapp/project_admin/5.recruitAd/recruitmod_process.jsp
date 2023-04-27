@@ -102,7 +102,7 @@
 			
 		<script>
 			alert("채용공고가 수정되었습니다.");
-			location.href="http://localhost/prj3/project_admin/3.recruitAdmin/job_posting.jsp";
+			location.href="http://localhost/prj2/project_admin/3.recruitAdmin/job_posting.jsp";
 		</script>
 		
 <% 		
@@ -114,7 +114,7 @@
 %>
 		<script>
 			alert("서버에 문제가 발생했습니다. 잠시 후 다시 시도해주세요");
-			location.href="http://localhost/prj3/project_admin/3.recruitAdmin/job_posting.jsp";
+			location.href="http://localhost/prj2/project_admin/3.recruitAdmin/job_posting.jsp";
 		</script>
 			
 			

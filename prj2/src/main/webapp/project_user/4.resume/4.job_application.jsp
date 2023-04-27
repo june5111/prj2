@@ -61,7 +61,7 @@ pageContext.setAttribute("apply", apply);
 
 }catch(NullPointerException ne) {
 	ne.printStackTrace();
-	String msg="<script>alert('로그인 후 이용해 주세요');  location.href='http://localhost/prj3/project_user/2.join/login.jsp'</script>";
+	String msg="<script>alert('로그인 후 이용해 주세요');  location.href='http://localhost/prj2/project_user/2.join/login.jsp'</script>";
 	out.print(msg);
 }catch(SQLException se) {
 	se.printStackTrace();
@@ -209,8 +209,8 @@ td {
 			<!-- // headInner -->
 			<div class="headInner">
 				<h1 class="jkLogo">
-					<a href="http://localhost/prj3/project_user/1.main/main_page_loged.jsp"><img
-						src="http://localhost/prj3/images/devplanet_logo.png"
+					<a href="http://localhost/prj2/project_user/1.main/main_page_loged.jsp"><img
+						src="http://localhost/prj2/images/devplanet_logo.png"
 						alt="JOBKOREA"></a>
 				</h1>
 
@@ -386,7 +386,7 @@ td {
 							<tr>
 								<td name="num">${ i.count }</td>
 								<td name="companyName">${ applyList.companyName }</td>
-								<td name="title"><a href="http://localhost/prj3/project_user/7.apply/company.jsp?name=${ applyList.companyName }" target="blank">${ applyList.title }</a></td>
+								<td name="title"><a href="http://localhost/prj2/project_user/7.apply/company.jsp?name=${ applyList.companyName }" target="blank">${ applyList.title }</a></td>
 								<td name="readState">${ applyList.readState eq "RD"? "열람":"미열람" }</td>
 								<td name="applyState">${ applyList.applyState eq "NC"?"지원완료":"지원취소" }</td>
 								<td name="progress">${ applyList.progress < 0 ?"진행중":"마감" }</td>
@@ -428,10 +428,10 @@ td {
 					<h2 class="lnbTit">이력서 관리</h2>
 					<ul>
 						<li><a
-							href="http://localhost/prj3/project_user/4.resume/1.resume_add.jsp"
+							href="http://localhost/prj2/project_user/4.resume/1.resume_add.jsp"
 							target="_blank">이력서 등록</a></li>
 						<li><a
-							href="http://localhost/prj3/project_user/4.resume/3.resume_present.jsp">이력서
+							href="http://localhost/prj2/project_user/4.resume/3.resume_present.jsp">이력서
 								현황</a></li>
 					</ul>
 				</div>
@@ -439,15 +439,15 @@ td {
 					<h2 class="lnbTit">입사지원 관리</h2>
 					<ul>
 						<li><a class=on
-							href="http://localhost/prj3/project_user/4.resume/4.job_application.jsp">입사지원 현황</a></li>
+							href="http://localhost/prj2/project_user/4.resume/4.job_application.jsp">입사지원 현황</a></li>
 					</ul>
 				</div>
 
 				<div class="lnbGroup">
 					<h2 class="lnbTit">회원정보 관리</h2>
 					<ul>
-						<li><a href="http://localhost/prj3/project_user/5.memberInfo/2.correctionInfo.jsp">회원정보 수정</a></li>
-						<li><a href="http://localhost/prj3/project_user/5.memberInfo/3.confirmPass.jsp">비밀번호 변경</a></li>
+						<li><a href="http://localhost/prj2/project_user/5.memberInfo/2.correctionInfo.jsp">회원정보 수정</a></li>
+						<li><a href="http://localhost/prj2/project_user/5.memberInfo/3.confirmPass.jsp">비밀번호 변경</a></li>
 					</ul>
 				</div>
 			</section>

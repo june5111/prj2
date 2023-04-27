@@ -9,7 +9,7 @@ AdminUserDAO auDAO = new AdminUserDAO();
 String userId = request.getParameter("user_id");
 try {
     auDAO.updateQuitUser(userId);
-    response.sendRedirect("http://localhost/prj3/project_admin/6.memberAdmin/member_manage.jsp");
+    response.sendRedirect("http://localhost/prj2/project_admin/6.memberAdmin/member_manage.jsp");
 } catch (SQLException e) {
     e.printStackTrace();
 %>

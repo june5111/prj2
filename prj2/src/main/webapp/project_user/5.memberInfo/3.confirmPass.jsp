@@ -16,13 +16,13 @@
   
   
 
-		<link rel="stylesheet" type="text/css" href="http://localhost/prj3/css/common.css"/>
-		<link rel="stylesheet" type="text/css" href="http://localhost/prj3/css/footer_sub.css"/>
-		<link rel="stylesheet" type="text/css" href="http://localhost/prj3/css/gnb_sub.css"/>
-		<link rel="stylesheet" type="text/css" href="http://localhost/prj3/css/gnb.css"/>
-		<link rel="stylesheet" type="text/css" href="http://localhost/prj3/css/mbr_common.css"/>
-		<link rel="stylesheet" type="text/css" href="http://localhost/prj3/css/mbr_style.css"/>
-		<link rel="stylesheet" type="text/css" href="http://localhost/prj3/css/mbr_tpl.css"/>
+		<link rel="stylesheet" type="text/css" href="http://localhost/prj2/css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="http://localhost/prj2/css/footer_sub.css"/>
+		<link rel="stylesheet" type="text/css" href="http://localhost/prj2/css/gnb_sub.css"/>
+		<link rel="stylesheet" type="text/css" href="http://localhost/prj2/css/gnb.css"/>
+		<link rel="stylesheet" type="text/css" href="http://localhost/prj2/css/mbr_common.css"/>
+		<link rel="stylesheet" type="text/css" href="http://localhost/prj2/css/mbr_style.css"/>
+		<link rel="stylesheet" type="text/css" href="http://localhost/prj2/css/mbr_tpl.css"/>
 
 
 	    
@@ -55,7 +55,7 @@ $(function(){
 	});//click
 	
 	$("#cancel").click(function() {
-		location.href="http://localhost/prj3/project_user/1.main/main_page_loged.jsp";
+		location.href="http://localhost/prj2/project_user/1.main/main_page_loged.jsp";
 	});//cancel
 	
 	
@@ -81,8 +81,8 @@ $(function(){
 		<div id="gnb">
 	
 			<!--// 개인회원 -->
-			<h1><a class="logo"href="http://localhost/prj3/project_user/1.main/main_page_loged.jsp"><img alt="데브플래닛" src="http://localhost/prj3/project_admin/images/devplanet_logo.png"></a>
-			<span class="bar"><span class="title"><img src="http://localhost/prj3/project_admin/images/h_mng_gg.gif" width="117" height="23" alt="회원정보 관리"></span></span>
+			<h1><a class="logo"href="http://localhost/prj2/project_user/1.main/main_page_loged.jsp"><img alt="데브플래닛" src="http://localhost/prj2/project_admin/images/devplanet_logo.png"></a>
+			<span class="bar"><span class="title"><img src="http://localhost/prj2/project_admin/images/h_mng_gg.gif" width="117" height="23" alt="회원정보 관리"></span></span>
 			</h1>
 <!--skip은 안보임  -->	<h2 class="skip"><!--주요링크--></h2>
 			<ul class="lnb">
@@ -91,7 +91,7 @@ $(function(){
 			<!-- <br><br><br> -->
 			<div class="secNav">
 				<ol>
-					<li class="mn1"><a href="http://localhost/prj3/project_user/5.memberInfo/1.confrimInfo.jsp"><span></span>개인정보 수정</a></li>
+					<li class="mn1"><a href="http://localhost/prj2/project_user/5.memberInfo/1.confrimInfo.jsp"><span></span>개인정보 수정</a></li>
 					<li class="mn2"><a href="#void"><span class="span"></span>비밀번호변경</a></li>
 					<li class="mn3 end"><a href="/Customer_C/ETC/CC_leave.asp?Customer_C_Oem_No=1" target="_blank"><span></span>회원탈퇴</a></li>
 					<!-- <li class="mn4"><a href="/Text_User/User_Mailing_Mng.asp?OEM_No=1"><span></span>메일링/문자메시지 설정</a></li>
@@ -121,7 +121,7 @@ $(function(){
 			<fieldset>
 <!--skip은 안보임  -->	<legend><!-- 비밀번호 변경 정보 입력폼 --></legend>
 				<div class="mbrSec mbrMngPWD">
-					<h2 class="mbrHeading2"><img src="http://localhost/prj3/project_admin/images/mbr_h_mng_pwdchange.gif" alt="비밀번호 변경"></h2>
+					<h2 class="mbrHeading2"><img src="http://localhost/prj2/project_admin/images/mbr_h_mng_pwdchange.gif" alt="비밀번호 변경"></h2>
 					<div class="mbrTplDesc">
 						<p>비밀번호는 <strong>8~16자 영문, 숫자, 특수문자</strong>를 사용할 수 있습니다. </p>
 						<p><em>비밀번호는 주기적(최소 6개월)으로 변경해 주시기 바랍니다.</em></p>

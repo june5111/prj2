@@ -65,7 +65,7 @@ $(function() {
 
 function confirmDelete(userId) {
 	if(confirm("정말 삭제하시겠습니까?")) {
-		location.href="http://localhost/prj3/project_admin/6.memberAdmin/delete_process.jsp?user_id="+ userId;
+		location.href="http://localhost/prj2/project_admin/6.memberAdmin/delete_process.jsp?user_id="+ userId;
 	}// end if
 }// confirmDelete
 </script>
@@ -77,7 +77,7 @@ function confirmDelete(userId) {
 <div id="header">
 
 <div class="logo">
-<img src="http://localhost/prj3/project_admin/images/devplanet_big.png">
+<img src="http://localhost/prj2/project_admin/images/devplanet_big.png">
 </div>
 
 <div class="page_name">
@@ -85,7 +85,7 @@ function confirmDelete(userId) {
 </div>
 
 <div class="main_page">
-<a href="http://localhost/prj3/project_admin/1.mainAdmin/main.jsp">메인페이지</a>
+<a href="http://localhost/prj2/project_admin/1.mainAdmin/main.jsp">메인페이지</a>
 </div>
 
 </div>
@@ -130,7 +130,7 @@ pageContext.setAttribute("userCount", userCount);
 </div><!-- board -->
 
 <div class="search">
-<form action="http://localhost/prj3/project_admin/6.memberAdmin/member_manage.jsp" name="id_frm" id="id_frm">
+<form action="http://localhost/prj2/project_admin/6.memberAdmin/member_manage.jsp" name="id_frm" id="id_frm">
 <input type="text" placeholder="아이디 검색" style="width:110px; height:25px" id="uName" name="uName"/>
 <input type="button" class="btn" value="검색" id="id_btn" />
 </form>
@@ -173,8 +173,8 @@ pageContext.setAttribute("userCount", userCount);
    		<td><c:out value="${ val.tel }"/></td>
    		<td><c:out value="${ val.regDate }"/></td>
    		<td>
-   			<a href="http://localhost/prj3/project_admin/6.memberAdmin/editMemInfo.jsp?user_id=${ val.id }">수정</a> / 
-   			<a href="http://localhost/prj3/project_admin/6.memberAdmin/delete_process.jsp?user_id=${ val.id }" onclick="return confirm('정말 삭제하시겠습니까?')">삭제</a>
+   			<a href="http://localhost/prj2/project_admin/6.memberAdmin/editMemInfo.jsp?user_id=${ val.id }">수정</a> / 
+   			<a href="http://localhost/prj2/project_admin/6.memberAdmin/delete_process.jsp?user_id=${ val.id }" onclick="return confirm('정말 삭제하시겠습니까?')">삭제</a>
    		</td>
 	</tr>
 </c:forEach>

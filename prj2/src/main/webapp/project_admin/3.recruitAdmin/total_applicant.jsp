@@ -113,7 +113,7 @@ $(function() {
 <div id="header">
 
 <div class="logo">
-<a href="http://localhost/prj3/project_admin/3.recruitAdmin/job_posting.jsp"><img src="http://localhost/prj3/images/devplanet_big.png" alt="데브플래닛"></a>
+<a href="http://localhost/prj2/project_admin/3.recruitAdmin/job_posting.jsp"><img src="http://localhost/prj2/images/devplanet_big.png" alt="데브플래닛"></a>
 </div>
 
 <div class="page_name">
@@ -121,7 +121,7 @@ $(function() {
 </div>
 
 <div class="main_page">
-<a href="http://localhost/prj3/project_admin/1.mainAdmin/main.jsp" class="list" >메인페이지</a>
+<a href="http://localhost/prj2/project_admin/1.mainAdmin/main.jsp" class="list" >메인페이지</a>
 </div>
 	
 </div>
@@ -235,7 +235,7 @@ cntApply = aDAO.selectCountApply(jobNum);
 </table>
 </div><!-- board -->
 <div class="search">
-<form action="http://localhost/prj3/project_admin/3.recruitAdmin/total_applicant.jsp" name="searchPeople" id="searchPeople">
+<form action="http://localhost/prj2/project_admin/3.recruitAdmin/total_applicant.jsp" name="searchPeople" id="searchPeople">
 <div>
 <input type="button" class="btnRefresh" value="목록으로" id="refreshBtn"/>
 </div>
@@ -292,8 +292,8 @@ if(list.size()==0){ //검색된 결과가 없으면
 <tr>
    <td><c:out value="${i.count }"/></td>
    <%-- <td><c:out value="${aVO.cName}" /></td>기업명 --%>
-   <%-- <td><a href="http://localhost/prj3/project_admin/4.resumeView/1.resumeView.jsp?id=${aVO.id}&rNum=${aVO.rNum}&applyNum=${aVO.applyNum}"> --%>
-   <td><a href="http://localhost/prj3/project_admin/4.resumeView/1.resumeView.jsp?jobNum=<%=jobNum%>&id=${aVO.id}&rNum=${aVO.rNum}&applyNum=${aVO.applyNum}">
+   <%-- <td><a href="http://localhost/prj2/project_admin/4.resumeView/1.resumeView.jsp?id=${aVO.id}&rNum=${aVO.rNum}&applyNum=${aVO.applyNum}"> --%>
+   <td><a href="http://localhost/prj2/project_admin/4.resumeView/1.resumeView.jsp?jobNum=<%=jobNum%>&id=${aVO.id}&rNum=${aVO.rNum}&applyNum=${aVO.applyNum}">
    <c:out value="${aVO.resumeTitle}" /></a></td><%-- 이력서 제목 --%>
    <td><c:out value="${aVO.name }"/></td>
    <td>
