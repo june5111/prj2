@@ -254,7 +254,7 @@ p{
 
 					<div class="btnBx">
 						<a
-							href="http://localhost/prj2/project_user/4.resume/1.resume_add.jsp"
+							href="http://localhost/prj2/project_user/4.resume/resume_add.jsp"
 							class="btn btnBl mtuSpImgBefore" target="_blank"><span>이력서
 								등록</span></a>
 					</div>
@@ -296,12 +296,10 @@ p{
 
 							<div class="btnCell">
 								<a class="btn"
-									href="http://localhost/prj2/project_user/4.resume/1.resume_modify.jsp?rNum=${val.rNum} "
-									target="_blank">수정</a>
+									href="http://localhost/prj2/project_user/4.resume/resume_modify.jsp?rNum=${val.rNum} "target="_blank">수정</a>
 							</div>
 							<div class="btnCell">
-								<a class="btn" href="http://localhost/prj2/project_user/4.resume/3.resume_presnet_delete.jsp?rNum=${val.rNum}"
-									>삭제</a>
+								<a class="btn" href="http://localhost/prj2/project_user/4.resume/resume_presnet_delete.jsp?rNum=${val.rNum}">삭제</a>
 							</div>
 
 						</div>
@@ -345,22 +343,22 @@ p{
 				<div class="lnbGroup">
 					<h2 class="lnbTit">이력서 관리</h2>
 					<ul>
-						<li><a href="http://localhost/prj2/project_user/4.resume/1.resume_add.jsp" target="_blank">이력서 등록</a></li>
-						<li><a class=on href="http://localhost/prj2/project_user/4.resume/3.resume_present.jsp">이력서 현황</a></li>
+						<li><a href="http://localhost/prj2/project_user/4.resume/resume_add.jsp" target="_blank">이력서 등록</a></li>
+						<li><a class=on href="http://localhost/prj2/project_user/4.resume/resume_present.jsp">이력서 현황</a></li>
 					</ul>
 				</div>
 				<div class="lnbGroup">
 					<h2 class="lnbTit">입사지원 관리</h2>
 					<ul>
-						<li><a href="http://localhost/prj2/project_user/4.resume/4.job_application.jsp">입사지원 현황</a></li>
+						<li><a href="http://localhost/prj2/project_user/4.resume/job_application.jsp">입사지원 현황</a></li>
 					</ul>
 				</div>
 
 				<div class="lnbGroup">
 					<h2 class="lnbTit">회원정보 관리</h2>
 					<ul>
-						<li><a href="http://localhost/prj2/project_user/5.memberInfo/2.correctionInfo.jsp">회원정보 수정</a></li>
-						<li><a href="http://localhost/prj2/project_user/5.memberInfo/3.confirmPass.jsp">비밀번호 변경</a></li>
+						<li><a href="http://localhost/prj2/project_user/5.memberInfo/correctionInfo.jsp">회원정보 수정</a></li>
+						<li><a href="http://localhost/prj2/project_user/5.memberInfo/confirmPass.jsp">비밀번호 변경</a></li>
 					</ul>
 				</div>
 			</section>

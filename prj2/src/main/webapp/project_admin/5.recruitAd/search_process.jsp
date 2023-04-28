@@ -6,7 +6,7 @@
     pageEncoding="UTF-8"
     info="기업명 조회 (숨겨진 div 화면에 보여주기)"
     %>
-
+<%@ include file="check_login.jsp" %>
 <!-- 기업명을 먼저 VO에 넣어보자!!!! 쿼리문이 잇는 DAO를 사용하지 않아 DB에 들어가지는 않음  오로지 다시 화면에 뿌려주기 위함-->
 <%
 request.setCharacterEncoding("utf-8");

@@ -171,12 +171,11 @@ public class JobDAO {
 			StringBuilder selectPost = new StringBuilder();
 			selectPost
 			.append("   select corp.name, title, career, education, empform, sal, area, description, "
-					+ "recruit_field, logo, field,type,homepage, work_hours, start_date, end_date, work_hours, establish_year, recruit_people, emp, job_ad.job_num   ")
+					+ "recruit_field, logo, field,type, homepage, work_hours, start_date, end_date, work_hours, establish_year, recruit_people, emp, job_ad.job_num   ")
 			.append("   from job_ad, corp   ")
 			.append("   where job_ad.name=corp.name and job_ad.name=? and job_num=?  ");
 			
 			pstmt=con.prepareStatement(selectPost.toString());
-			
 			pstmt.setString(1, cName);
 			pstmt.setInt(2, jobNum);
 			
@@ -189,7 +188,6 @@ public class JobDAO {
 						rs.getDate("end_date"), rs.getDate("establish_year"), rs.getInt("job_num"));
 				
 			}//end if
-			
 			
 		}finally {
 			dbCon.dbClose(rs, pstmt, con);

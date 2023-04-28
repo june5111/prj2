@@ -381,15 +381,13 @@ public class UserDAO {
 	}//updateUserPass
 	
 	//È¸¿ø Å»Åð
-	public int updateQuit(String id, String name)throws SQLException, UnsupportedEncodingException, NoSuchAlgorithmException, GeneralSecurityException {
+	public int updateQuit(String id)throws SQLException{
 		int result=0;
 		
 		DbConnection dbCon=DbConnection.getInstance();
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		
-		DataEncrypt de=new DataEncrypt("FsRt4SfY4US0IWtK4JPJsw==");
-		String nameData = de.encryption(name);
 		
 		try {
 			
@@ -398,14 +396,12 @@ public class UserDAO {
 			StringBuilder updatePass = new StringBuilder();
 			updatePass
 			.append("   update user_table ")
-			.append("   set name='NA', pass='NA', email='NA', tel='NA', zipcode='NA', addr='NA',detail_addr='NA', terms='NA', "
-					+ "reg_date='0000-00-00', birth_date='0000-00-00', img='NA', gender=null, quit_date=sysdate ")
-			.append("   where user_id=? and name=? ");
+			.append("   set name='n/a', pass='n/a', email='n/a', tel='n/a', zipcode=0, addr='n/a',detail_addr='n/a', terms='N', "
+					+ "reg_date=null , birth_date=null, img=null, gender=null, quit_date=sysdate ")
+			.append("   where user_id=? ");
 			
 			pstmt=con.prepareStatement(updatePass.toString());
-			
 			pstmt.setString(1, id);
-			pstmt.setString(2, nameData);
 			
 			result = pstmt.executeUpdate();
 			
@@ -416,7 +412,6 @@ public class UserDAO {
 		
 		return result;
 	}//updateQuit
-	
 	
 	
 	

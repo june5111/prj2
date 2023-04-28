@@ -28,7 +28,7 @@ AdminResultVO arVO = aDAO.adminLogin(alVO);
 
 if (arVO != null) {
     // session.setAttribute("admin_id", arVO.getId());
-    session.setAttribute("sesVO", arVO);
+    session.setAttribute("arVO", arVO);
     response.sendRedirect("main.jsp");
 } else {
     out.println("<script>");

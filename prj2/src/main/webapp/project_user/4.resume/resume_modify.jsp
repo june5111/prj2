@@ -388,7 +388,7 @@ $(function () {
 		// 스킬
 		
 		$.ajax({
-			url : "4.data_skill.jsp",
+			url : "data_skill.jsp",
 			data: jsonSkill,
 			dataType : "JSON",
 			error : function(xhr){
@@ -405,7 +405,7 @@ $(function () {
 						skillView +=	"<div class='row'><div id='skill'>스킬(스킬명)"+
 									"<div class='input input-certificate-name is-label is-value' style='width: 300px;'>"+
 									"<label>스킬명 <span class='star'>*</span></label> <input type='text' readonly='readonly' value='"+jsonObj.name+"'></div>"+
-									"<a href='http://localhost/prj2/project_user/4.resume/1.CLSE_delete.jsp?num="+jsonObj.num+"'>"+
+									"<a href='http://localhost/prj2/project_user/4.resume/CLSE_delete.jsp?num="+jsonObj.num+"'>"+
 									"<button type='button' style='height: 30px; width: 60px; border: 1px solid #999999; margin-top: 20px; margin-bottom: 20px; margin-right: 20px;' id='deleteSkill'>"+
 									"<span style=''>- 삭제</span></button></a></div></div>"
 						
@@ -423,7 +423,7 @@ $(function () {
 		var jsonLang = {rNum : <%= rrNum %>}
 		//어학
 		$.ajax({
-			url : "4.data_lang.jsp",
+			url : "data_lang.jsp",
 			data : jsonLang,
 			dataType : "json",
 			error : function(xhr) {
@@ -444,7 +444,7 @@ $(function () {
 								  "<label>점수 <span class='star'>*</span></label>"+
 								  "<input type='text' readonly='readonly' value='"+jsonObj.score+"'></div><div class='input input-certificate-term is-label is-value'>"+
 								  "<label>취득일</label><input type='text' maxlength='10' oninput='formatDate(this)' readonly='readonly' value='"+jsonObj.getDate+"'></div>"+
-								  "<a href='http://localhost/prj2/project_user/4.resume/1.CLSE_delete.jsp?num="+jsonObj.num+"'>"+
+								  "<a href='http://localhost/prj2/project_user/4.resume/CLSE_delete.jsp?num="+jsonObj.num+"'>"+
 									"<button type='button' style='height: 30px; width: 60px; border: 1px solid #999999; margin-top: 20px; margin-bottom: 20px; margin-right: 20px;' id='deleteSkill'>"+
 									"<span style=''>- 삭제</span></button></a>"
 					});//each
@@ -460,7 +460,7 @@ $(function () {
 		var jsonCer = {rNum : <%= rrNum %>}
 		//자격증
 		$.ajax({
-			url : "4.data_cer.jsp",
+			url : "data_cer.jsp",
 			data : jsonCer,
 			dataType : "json",
 			error : function(xhr) {
@@ -480,7 +480,7 @@ $(function () {
 								 "<label>발행처/기관<span class='star'>*</span></label>"+
 								 "<input placeholder='' type='text' readonly='readonly' value='"+jsonObj.issuer+"'></div> <div class='input input-certificate-term is-label is-value'>"+
 								 "<label>취득일</label><input type='text' maxlength='10' oninput='formatDate(this)' readonly='readonly' value='"+jsonObj.getDate+"'></div>"+
-								 "<a href='http://localhost/prj2/project_user/4.resume/1.CLSE_delete.jsp?num="+jsonObj.num+"'>"+
+								 "<a href='http://localhost/prj2/project_user/4.resume/CLSE_delete.jsp?num="+jsonObj.num+"'>"+
 								  "<button type='button'style='height: 30px; width: 60px; border: 1px solid #999999; margin-top: 20px; margin-bottom: 20px;'class='minusLang'><span style=''>-삭제</span></button></a>"
 					});//each
 					
@@ -507,7 +507,7 @@ $(function () {
 		var jsonEdu = {rNum : <%= rrNum %>}
 		//학력
 		$.ajax({
-			url : "4.data_edu.jsp",
+			url : "data_edu.jsp",
 			data : jsonEdu,
 			dataType : "json",
 			error : function(xhr) {
@@ -550,7 +550,7 @@ $(function () {
 								 			"<label style='" + (jsonObj.schoolType === '고등학교' ? 'visibility:hidden;' : '') + "'>전공명</label> <input type='text' id='maj1' readonly='readonly' value='"+jsonObj.major+"' autocomplete='off' maxlength='50'/>"+
 								 		"</div>"+
 								 	"</div>"+
-								 	"<a href='http://localhost/prj2/project_user/4.resume/1.CLSE_delete.jsp?num="+jsonObj.num+"'>"+
+								 	"<a href='http://localhost/prj2/project_user/4.resume/CLSE_delete.jsp?num="+jsonObj.num+"'>"+
 									 	"<button type='button'style='height: 30px; width: 60px; border: 1px solid #999999; margin-top: 20px; margin-bottom: 20px;'class='minusEdu'><span style=''>삭제</span></button>"+
 									 "</a>"+
 								"</div>"
@@ -721,7 +721,7 @@ pageContext.setAttribute("rNum", rNum);
 					style="width: 100px; height: auto;" alt="JOBKOREA"></a>
 				<div class="links">
 					<a href="http://localhost/prj2/project_user/1.main/main_page_loged.jsp" class="link linkHome">개인회원 홈</a> <a
-						href="http://localhost/prj2/project_user/4.resume/3.resume_present.jsp"
+						href="http://localhost/prj2/project_user/4.resume/resume_present.jsp"
 						class="link linkManage">이력서 관리</a>
 				</div>
 			</div>
@@ -729,7 +729,7 @@ pageContext.setAttribute("rNum", rNum);
 					
 		<!-- 폼태그 -->
 		<form method="post" name="postFrm" enctype="multipart/form-data" id="userFrm"
-				action="2.resume_modify_complete.jsp?rNum=${ rNum }">
+				action="resume_modify_complete.jsp?rNum=${ rNum }">
 			<div class="resumeWrapper">
 				<div class="resumeContainer">
 					<div class="formWrap formWrapProfile">

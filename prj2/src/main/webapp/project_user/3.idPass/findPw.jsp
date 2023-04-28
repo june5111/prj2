@@ -47,6 +47,21 @@ $("#btnFind").click(function() {
 	$("#findPwFrm").submit();
 });//click
 });//ready
+
+//이메일 선택 이벤트
+function selectEmail() {
+    var emailInput = document.getElementById("email2");
+    var emailSelect = document.getElementById("Email_Addr");
+    
+	
+    emailSelect.addEventListener("change", function() {
+    	  emailInput.value = emailSelect.value;
+    	  if(emailSelect.selectedIndex == 7) {
+    		  $("#email2").focus();
+    	  }//end if
+    });
+}//selectEmail
+
 </script>
 </head>
 
@@ -134,8 +149,8 @@ $("#btnFind").click(function() {
 								    <input type="text" name="email" id="email" maxlength="30" style="width:80px;" class="ipText"> 
 								    <span class="delimiter">@</span>
 								    <input type="text" name="email2" id="email2" maxlength="20" style="width:80px;" class="ipText" title="e-메일 서비스 입력" > 
-								    <select title="e-메일 사업자" name="lb_email_select" id="lb_email_select" class="ipSelect ipSelect_1" onchange="mail_input(); Gmail_Check();">
-									    <option value="">선택하세요</option>
+								    <select title="e-메일 사업자" name="Email_Addr" id="Email_Addr" class="ipSelect ipSelect_1" onclick="selectEmail()">
+									    <option value="" selected>선택하세요</option>
 									    <option value="naver.com">naver.com</option>
 									    <option value="hanmail.net">hanmail.net</option>
 									    <option value="nate.com">nate.com</option>

@@ -39,6 +39,21 @@ $(function() {
 		$("#findIdFrm").submit();
 	});// click
 });// ready
+
+//이메일 선택 이벤트
+function selectEmail() {
+    var emailInput = document.getElementById("email2");
+    var emailSelect = document.getElementById("Email_Addr");
+    
+	
+    emailSelect.addEventListener("change", function() {
+    	  emailInput.value = emailSelect.value;
+    	  if(emailSelect.selectedIndex == 7) {
+    		  $("#email2").focus();
+    	  }//end if
+    });
+}//selectEmail
+
 </script>
 
 </head>
@@ -120,18 +135,18 @@ $(function() {
 							<li id="devName"><label for="lb_name" class="title">이름</label> <input type="text" name="name" id="name"  maxlength="50" style="width:308px; ime-mode:active;" class="ipText"></li>
 							<li id="devEmailForm">
 								<label for="lb_email_head" class="title">이메일 주소</label>
-								<input type="text" name="email" id="email_head" maxlength="30" style="width:80px;" class="ipText"> 
+								<input type="text" name="email" id="email1" maxlength="30" style="width:80px;" class="ipText"> 
 								<span class="delimiter">@</span>
-								<input type="text" name="email" id="email_detail" maxlength="20" style="width:80px;" class="ipText" title="e-메일 서비스 입력" > 
-								<select title="e-메일 사업자" name="lb_email_select" id="lb_email_select" class="ipSelect ipSelect_1" onchange="mail_input(); Gmail_Check();">
-									<option value="">선택하세요</option>
+								<input type="text" name="email" id="email2" maxlength="20" style="width:80px;" class="ipText" title="e-메일 서비스 입력" > 
+								<select title="e-메일 사업자" name="Email_Addr" id="Email_Addr" class="ipSelect ipSelect_1" onclick="selectEmail()">
+									<option value="" selected>선택하세요</option>
 									<option value="naver.com">naver.com</option>
 									<option value="hanmail.net">hanmail.net</option>
 									<option value="nate.com">nate.com</option>
 									<option value="daum.net">daum.net</option>
 									<option value="gmail.com">gmail.com</option>
 									<option value="dreamwiz.com">dreamwiz.com</option>
-									<option value="etc">직접입력</option>
+									<option value="">직접입력</option>
 								</select>
 							</li>
 						</ul>

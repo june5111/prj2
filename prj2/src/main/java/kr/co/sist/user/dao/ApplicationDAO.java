@@ -46,7 +46,7 @@ public class ApplicationDAO {
 			
 			StringBuilder selectAll=new StringBuilder();
 			selectAll
-			.append("  SELECT name, title, read_state, cancel, job_ad.job_num, ")
+			.append("  SELECT name, title, read_state, cancel, apply.job_num, ")
 			.append("  TRUNC(SYSDATE) - job_ad.end_date as diff ")
 			.append("  FROM   job_ad, apply  where job_ad.job_num = apply.job_num and apply.user_id=? ");
 			
@@ -94,7 +94,6 @@ public class ApplicationDAO {
 			while(rs.next()) {
 				uaVO=new UserApplyVO(rs.getString("name"), rs.getString("title"), rs.getString("read_state"), 
 						rs.getString("cancel"), rs.getInt("diff"), rs.getInt("job_num"));
-				
 				list.add(uaVO);
 			}//end while
 			

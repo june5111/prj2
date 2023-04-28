@@ -526,7 +526,7 @@ pageContext.setAttribute("imageFileInput", udVO.getImg());
 					style="width: 100px; height: auto;" alt="JOBKOREA"></a>
 				<div class="links">
 					<a href="http://localhost/prj2/project_user/1.main/main_page_loged.jsp" class="link linkHome">개인회원 홈</a> <a
-						href="http://localhost/prj2/project_user/4.resume/3.resume_present.jsp"
+						href="http://localhost/prj2/project_user/4.resume/resume_present.jsp"
 						class="link linkManage">이력서 관리</a>
 				</div>
 			</div>
@@ -534,7 +534,7 @@ pageContext.setAttribute("imageFileInput", udVO.getImg());
 					
 		<!-- multipart/form-data 폼태그 -->
 		<form method="post" name="postFrm" enctype="multipart/form-data" id="userFrm"
-				action="2.resume_add_complete.jsp">
+				action="resume_add_complete.jsp">
 			<div class="resumeWrapper">
 			
 				<div class="resumeContainer">

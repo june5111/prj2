@@ -248,7 +248,7 @@ rDAO.insertEducation(eVO);
     <div class="resumeWrapper">
     	<div class="resumeContainer resumeContainerComplete">
             <h1 class="header"><img src="//i.jobkorea.kr/content/images/text_user/resume/header-complete.gif" alt="이력서 작성 완료">완성도를 더 높여 더 많은 기회를 만나세요!</h1>
-            <a href="http://localhost/prj2/project_user/4.resume/3.resume_present.jsp" class="button buttonViewWritten">작성한 이력서 보기</a>
+            <a href="http://localhost/prj2/project_user/4.resume/resume_present.jsp" class="button buttonViewWritten">작성한 이력서 보기</a>
 <div class="asd">
 </div>
  <!-- footer 시작 -->
@@ -266,7 +266,7 @@ rDAO.insertEducation(eVO);
          <div class="footer__service">
             <h3 class="blind">잡코리아 서비스 링크</h3>
             <ul>
-                <li><a href="http://211.63.89.139/prj3/project_user/1.main/main_page.jsp" target="_blank">회사소개</a></li>
+                <li><a href="" target="_blank">회사소개</a></li>
                 <li><a href="https://www.jobkorea.co.kr/service_jk/provision/provision_gg.asp" target="_blank">이용약관</a></li>
                 <li><a href="https://www.jobkorea.co.kr/service/PolicyPrivacy" target="_blank"><strong>개인정보처리방침</strong></a></li>
             </ul>

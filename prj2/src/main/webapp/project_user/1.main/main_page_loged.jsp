@@ -131,7 +131,7 @@ function logout() {
 
                         <!-- 메뉴 활성화 클래스 navFixed 마우스 오버시 active 클래스 추가 -->
                         <li id="gnbGi" class="navItem gi ">
-                            <a href="http://localhost/prj2/project_user/1.main/adPage.jsp" class="linkItem" ><span class="spNav"><span class="txIr">채용정보</span></span></a>
+                            <a href="http://localhost/prj2/project_user/6.recruit/adPage.jsp" class="linkItem" ><span class="spNav"><span class="txIr">채용정보</span></span></a>
                         </li>
                     </ul>
                 </div>

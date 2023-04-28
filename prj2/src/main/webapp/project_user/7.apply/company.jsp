@@ -52,19 +52,15 @@ String cName=request.getParameter("name");
 int jobNum=Integer.parseInt(request.getParameter("jobNum"));
 
 JobPostVO jpVO=jDAO.selectJobPost(cName, jobNum);
+String homePage=jpVO.getHomepage();
 
 pageContext.setAttribute("job", jpVO);
 //int jobNum=jpVO.getJobNum();
-String homePage=jpVO.getHomepage();
 %>
 
 
 <script type="text/javascript">
-/* $(function() {
-	$("#devApplyBtn").click(function() {
-		window.open("http://localhost/prj2/project_user/7.apply/apply.jsp","subWin","width=600, height=600,top="+(window.screenY+100)+", left="+(window.screenX+100));
-	});//click
-});//ready */
+
 
 $(function() {
 	$("#cancel").click(function() {
@@ -75,14 +71,16 @@ $(function() {
 	});//click
 	
 	$("#homepage").click(function() {
-		if(<%=homePage%>==null) {
+		if("<%=homePage%>"==null) {
 			alert("해당 기업은 홈페이지 지원을 받지 않습니다.");
 			return;
 		}//end if
-		location.href="<%=homePage%>";
+		location.href="http://<%=homePage%>";
 	})//homepage
 	
 });//ready 
+
+
 
 function openPop(name, title, jobNum) {
 	
@@ -97,6 +95,7 @@ function openPop(name, title, jobNum) {
 	var url="http://localhost/prj2/project_user/7.apply/apply.jsp?name="+name+"&title="+title+"&jobNum="+jobNum;
 	window.open(url,"subWin","width=500, height=600,top="+(window.screenY+100)+", left="+(window.screenX+100));
 }//openPop
+
 </script>
 
 
@@ -200,7 +199,7 @@ function openPop(name, title, jobNum) {
 <!-- 지원하기 버튼 -->
 <div class="btns">
 <p class="sumBtn">
-<button type="button" class="girBtn tplBtn_1 tplBtnOrg girBtnOrg devOnlineApplyBtn devApplyBtn"  id="devApplyBtn" onclick="javascript:openPop('${job.cName}', '${job.title}','${ job.jobNum }')"><span>즉시지원</span></button>
+<button type="button" class="girBtn tplBtn_1 tplBtnOrg girBtnOrg devOnlineApplyBtn devApplyBtn"  id="devApplyBtn" onclick="openPop('${job.cName}', '${job.title}','${ job.jobNum }')"><span>즉시지원</span></button>
 </p>
 <button type="button" class="homepage1"  id="homepage"><span>홈페이지 지원</span></button>
 <button type="button" class="cancel1"  id="cancel"><span>지원취소</span></button>

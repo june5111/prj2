@@ -214,7 +214,7 @@ $(function(){
                             <th scope="row">
                             </th>
                             <td class="tplCo">
-                                <a href="#void" name="logo" id="logo" class="link normalLog" data-clickctgrcode="B01" target="_blank" ><img src="http://localhost/pj3/project_user/upload/${ corps.logo }" width="125" height="100"></a>
+                                <a href="#void" name="logo" id="logo" class="link normalLog" data-clickctgrcode="B01" target="_blank" ><img src="http://localhost/prj2/upload/${ corps.logo }" width="125" height="100"></a>
                             </td>
                             <td class="tplTit">
                                 <div class="titBx">
@@ -234,21 +234,6 @@ $(function(){
     </div>
     </div>
 
-    <div id="dvGIPaging">
-                    <div class="tplPagination newVer">
-
-                <ul>
-                                <li><span class="now" data-page="1">1</span></li>
-                                <li><a href="/recruit/_GI_List?Page=2" data-page="2">2</a></li>
-                                <li><a href="/recruit/_GI_List?Page=3" data-page="3">3</a></li>
-                                <li><a href="/recruit/_GI_List?Page=4" data-page="4">4</a></li>
-                                <li><a href="/recruit/_GI_List?Page=5" data-page="5">5</a></li>
-                </ul>
-
-                    <p><a href="/recruit/_GI_List?Page=11" class="tplBtn btnPgnNext" data-page="11">다음<i class="ico"></i></a></p>
-            </div>
-
-    </div>
 
 	</div>
 	</div>

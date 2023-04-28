@@ -1,4 +1,5 @@
 
+<%@page import="kr.co.sist.util.cipher.DataEncrypt"%>
 <%@page import="kr.co.sist.util.cipher.DataDecrypt"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="kr.co.sist.admin.dao.ApplyDAO"%>
@@ -10,7 +11,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%-- <%@ include file="../checkLogin.jsp" %> --%>
+<%@ include file="check_login.jsp" %>
 
 <!DOCTYPE html>
 <html>
@@ -31,8 +32,8 @@
 .search_btn{ position:absolute; top:283px; left:980px; } 
 
 .btnSearch{ background-color: #5E5E5E; border:none; width: 52px; height:26px; border-radius:4px; color:white; cursor:pointer }
-.btnRefresh{ position: relative; left: 145px; margin-bottom: 7px; background-color: #1A73E8; border:none; width: 100px; height:26px; border-radius:4px; color:white; cursor:pointer }
-.chart{ position: absolute; top:345px; left:50px; width: 1100px; height:300px; background-color: #E0E0E0; }
+.btnRefresh{ background-color: #5E5E5E; border:none; width: 70px; height:26px; border-radius:4px; color:white; cursor:pointer }
+.chart{ position: absolute; top:320px; left:50px; width: 1100px; height:300px; background-color: #E0E0E0; }
 .chart_table{ border:1.5px solid #CCC; border-spacing: 0px; background-color: #FFF }
 .delete{ border:none; width:40px; height:25px; background-color: transparent; cursor:pointer }
 .top{ background-color: #323743;  }
@@ -63,11 +64,6 @@ td{ text-align:center; font-family:맑은 고딕; font-size:14px; border-bottom:
 
 </style>
 
-<!-- bootstrap 시작-->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-<!-- bootstrap 끝-->
-
 <!-- CDN 시작 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <!-- CDN 끝 -->
@@ -92,7 +88,8 @@ $(function() {
 	
 	//목록으로
 	$("#refreshBtn").click(function(){
-		history.back();		
+		//history.back();		
+		location.href="http://localhost/prj2/project_admin/3.recruitAdmin/job_posting.jsp";
 		
 		window.scrollTo({
 		    top: 0,
@@ -101,6 +98,9 @@ $(function() {
 		  });
 		
 	});
+	
+	
+	
 	
 	
 });//ready
@@ -141,9 +141,9 @@ int jobNum = Integer.parseInt(jobNumStr);
 
 String applyName = request.getParameter("people_text");
 String cName = request.getParameter("cName");
-String title = request.getParameter("jobTitle");
-
+String jobTitle = request.getParameter("jobTitle");
 //String title = (String) session.getAttribute("jobTitle");
+System.out.println(cName + "/"+jobTitle);
 
 
 if(applyName==null){
@@ -159,33 +159,43 @@ int cntUread =0;
 int cntApply =0;
 
 
+
 try{
+DataEncrypt de= new DataEncrypt("FsRt4SfY4US0IWtK4JPJsw==");
+DataDecrypt dd=new DataDecrypt("FsRt4SfY4US0IWtK4JPJsw=="); //이름 키 필요
+
+
 //DAO의 select메서드 호출 (기업 현황 보여주기)
+
+
+if(applyName!=""){
+applyName = de.encryption(applyName);	
+}
+
+
 list = aDAO.selectApplyAll(applyName, jobNum);
 
-//스콥객체에 담기 전에 복호화해야함
 
-//list에 VO가 여러개 담겨 있고, 각각의  Vo의 name은 복호화되어야 한다
-//걍 반복해볼까
-
-DataDecrypt dd=new DataDecrypt("FsRt4SfY4US0IWtK4JPJsw=="); //이름 키 필요
 
 //list의 0번방에 담긴 VO의 getter메서드 호출 - 반복시켜서 꺼내오고 복호화 진행
 for(int i=0; i<list.size(); i++){
-	
-	list.get(i).setName(dd.decryption(list.get(i).getName()));// i번째 있는 이름들 반복시켜서 가져오기
-	
-	//이거 수업시간에 받은 암호화 복호화 파일 아마 lib에 있는 sist_util인듯?
-	System.out.println(dd.decryption(list.get(i).getName()));
+ 
+ list.get(i).setName(dd.decryption(list.get(i).getName()));// i번째 있는 이름들 반복시켜서 가져오기
+ 
+ //이거 수업시간에 받은 암호화 복호화 파일 아마 lib에 있는 sist_util인듯?
 }// end for
 
 
-// 복호화 완료한 이름들을 VO에 넣기 => 그러면 완료!!!!
+//복호화 완료한 이름들을 VO에 넣기 => 그러면 완료!!!!
+
+
 
 
 //리스트를 반복시켜 VO에 담긴 값을 화면에 보여준다
 pageContext.setAttribute("list", list);
-
+pageContext.setAttribute("cName", cName);
+pageContext.setAttribute("jobTitle", jobTitle);
+System.out.println(cName+"/"+jobTitle);
 
 //열람수
 cntRead = aDAO.selectCountRead(jobNum);
@@ -195,9 +205,6 @@ cntUread = aDAO.selectCountUnRead(jobNum);
 
 //총 지원자
 cntApply = aDAO.selectCountApply(jobNum);
-
-
-// VO에 있는 getName() 을 여기서 복호화 작업
 
 
 
@@ -211,12 +218,12 @@ cntApply = aDAO.selectCountApply(jobNum);
 
 <div class="title">
 <span class="title_text" style="text-align:center; top:10px; left:10px">
-<strong><c:out value="<%=cName %>"/></strong></span>
+<strong><c:out value="${cName }"/></strong></span>
 </div>
 
 <div class="title1">
 <span class="title_text" style="text-align:center; top:20px; left:10px">
-공고제목 : <c:out value="<%=title %>"/></span>
+공고제목 : <c:out value="${jobTitle }"/></span>
 </div>
 
 <div class="board">
@@ -234,19 +241,15 @@ cntApply = aDAO.selectCountApply(jobNum);
 </tr>
 </table>
 </div><!-- board -->
+
 <div class="search">
 <form action="http://localhost/prj2/project_admin/3.recruitAdmin/total_applicant.jsp" name="searchPeople" id="searchPeople">
-<div>
-<input type="button" class="btnRefresh" value="목록으로" id="refreshBtn"/>
-</div>
 <input type="text" placeholder="지원자 검색" style="width:110px; height:25px" id="people_text" name="people_text"/>
-<select name="option" id="option">
-	<option value="">전체</option>
-	<option value="">열람</option>
-	<option value="">미열람</option>
-</select>
 <input type="hidden" name="jobNum" value="<%=jobNum%>"> 
+<input type="hidden" name="jobTitle" value="<%=jobTitle%>"> 
+<input type="hidden" name="cName" value="<%=cName%>"> 
 <input type="button" class="btnSearch" value="검색" id="search_people"/>
+<input type="button" class="btnRefresh" value="목록으로" id="refreshBtn"/>
 </form>
 </div>
 
@@ -286,7 +289,8 @@ if(list.size()==0){ //검색된 결과가 없으면
 		<td colspan="7">조회된 결과가 없음</td>
 	</tr>
 	
-<%}else{%>
+<%}else{
+%>
 
 <c:forEach var="aVO" items="${list}" varStatus="i">
 <tr>

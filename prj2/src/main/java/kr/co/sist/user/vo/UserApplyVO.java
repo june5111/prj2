@@ -16,6 +16,7 @@ public class UserApplyVO {
 		this.readState = readState;
 		this.applyState = applyState;
 		this.progress = progress;
+		this.jobNum=jobNum;
 	}
 
 	public String getCompanyName() {

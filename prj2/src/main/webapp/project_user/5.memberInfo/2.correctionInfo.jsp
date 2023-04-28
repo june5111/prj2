@@ -187,9 +187,13 @@ input.value = sanitized;
 function selectEmail() {
     var emailInput = document.getElementById("email2");
     var emailSelect = document.getElementById("Email_Addr");
+    
 	
     emailSelect.addEventListener("change", function() {
     	  emailInput.value = emailSelect.value;
+    	  if(emailSelect.selectedIndex == 7) {
+    		  $("#email2").focus();
+    	  }//end if
     });
 }//selectEmail
 
@@ -214,13 +218,10 @@ function selectEmail() {
 		<div id="gnb">
 	
 			<!--// 개인회원 -->
-			<h1><a class="logo"href="#void"><img alt="데브플래닛" src="http://localhost/prj2/project_admin/images/devplanet_logo.png"></a>
+			<h1><a class="logo"href="http://localhost/prj2/project_user/1.main/main_page_loged.jsp"><img alt="데브플래닛" src="http://localhost/prj2/project_admin/images/devplanet_logo.png"></a>
 			<span class="bar"><span class="title"><img src="http://localhost/prj2/project_user/images/h_mng_gg.gif" width="117" height="23" alt="회원정보 관리"></span></span>
 			</h1>
 <!--skip은 안보임  -->	<h2 class="skip"><!--주요링크--></h2>
-			<ul class="lnb">
-				<li><a href="#void">개인회원 홈</a></li>
-			</ul>
 			<!-- <br><br><br> -->
 			<div class="secNav">
 				<ol>
@@ -358,8 +359,8 @@ function selectEmail() {
 										<span class="delimiter">@</span>
 										<input type="text" name="email" id="email2" title="이메일 서비스 입력" maxlength="25" class="ipText" style="width:150px" onkeyup="Email_Addr_Text_Move(); Gmail_Check();" value="${ email[1] }">
 										<select title="이메일 사업자" name="Email_Addr" id="Email_Addr" onChange="mail_sum(); Gmail_Check();" class="ipSelect" onclick="selectEmail()">
-											<option value="">선택하세요</option>
-											<option value="naver.com" selected>naver.com</option>
+											<option value="" selected>선택하세요</option>
+											<option value="naver.com" >naver.com</option>
 											<option value="hanmail.net" >hanmail.net</option>
 											<option value="nate.com" >nate.com</option>
 											<option value="daum.net" >daum.net</option>

@@ -18,9 +18,24 @@
 
 <script type="text/javascript">
 $(function() {
-	$("#btn").click(function() {
+	$("#btnLogin").click(function() {
+		
+		if($("#id").val()=="") {
+			alert("아이디를 입력해 주세요.");
+			return;
+		}//end if
+		
+		if($("#pass").val()=="") {
+			alert("비밀번호를 입력해 주세요.");
+			return;
+		}//end if
+		
 		$("#loginFrm").submit();
 	});// click
+	
+	
+	
+	
 });// ready
 </script>
 </head>
@@ -59,10 +74,10 @@ $(function() {
 
 					<div class="input_row">
 						<label for="M_ID" id="lb_id" class="blind">아이디</label>
-						<input type="text" class="inpTxt inpID off" name="userId" placeholder="아이디" id="M_ID" size="16" maxlength="20" title="아이디 입력" style="ime-mode:inactive;" >
+						<input type="text" class="inpTxt inpID off" name="userId" placeholder="아이디" id="id" size="16" maxlength="20" title="아이디 입력" style="ime-mode:inactive;" >
 						<label for="M_PWD" id="lb_pw" class="blind">비밀번호</label>
-						<input type="password" class="inpTxt inpPW off devCapsLock" name="pass" placeholder="비밀번호" id="M_PWD" size="16" title="비밀번호 입력">
-						<button type="submit" class="btLoin">로그인</button>
+						<input type="password" class="inpTxt inpPW off devCapsLock" name="pass" placeholder="비밀번호" id="pass" size="16" title="비밀번호 입력">
+						<button type="button" class="btLoin" id="btnLogin">로그인</button>
                         <div class="lyCapsLock" id="ipNotice">
 							<em>Caps Lock</em>이 켜져 있습니다.<span class="mainIcn mainIcnArrUp"></span>
 						</div>

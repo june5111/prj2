@@ -72,7 +72,7 @@ $(function() {
 	</div>
 </div>
 		<div id="gnb">
-			<h1><a class="logo" href="https://www.jobkorea.co.kr"><img alt="데브플래닛" src="http://localhost/prj2/project_user/3.idPass/images/devplanet_logo_id_white.png"></a>
+			<h1><a class="logo" href="http://localhost/prj2/project_user/1.main/main_page.jsp"><img alt="데브플래닛" src="http://localhost/prj2/project_user/3.idPass/images/devplanet_logo_id_white.png"></a>
 			<span class="bar">
 				<span class="title">
 					<img src="http://localhost/prj2/project_user/3.idPass/images/h_cc_schpwd.gif" alt="비밀번호 찾기">
