@@ -124,7 +124,7 @@ pageContext.setAttribute("userCount", userCount);
 </tr>
 
 <tr>
-   <td>총 가입 인원</td>
+   <td>등록된 회원</td>
 </tr>
 </table>
 </div><!-- board -->

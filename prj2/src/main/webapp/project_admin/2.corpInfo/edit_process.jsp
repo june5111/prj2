@@ -84,7 +84,7 @@ if (result > 0) {
 
 try{
 	acDAO.updateCorp(acVO);
-	acDAO.updateRepresent(acVO);
+	// acDAO.updateRepresent(acVO);
 	// 대표자 배열 각각의 요소로 DB에 넣기
 	/* for(int i=0; i<leng; i++) {
 		acDAO.updateRepresent(acVO); //--------------------------대표자명 insert메소드 추가 호출!!

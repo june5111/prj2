@@ -239,6 +239,7 @@ select::-ms-expand {
 max-width: 100%;
 }
 
+a { text-decoration-line: none; }
 </style>
 
 <!-- jQuery CDN 시작 -->
@@ -408,7 +409,7 @@ $(function() {
 <div id="wrap">
 	<div id="header">
 		<div id="innerBar">
-			<p style="color: #f1f1f1"><a href="http://localhost/prj2/project_admin/1.mainAdmin/main.jsp">메인 페이지</a></p>
+			<p><a style="color: #f1f1f1" href="http://localhost/prj2/project_admin/1.mainAdmin/main.jsp">메인 페이지</a></p>
 		</div>
 		<div id="titlee">
 			<h1>DEVPLANET </h1> 

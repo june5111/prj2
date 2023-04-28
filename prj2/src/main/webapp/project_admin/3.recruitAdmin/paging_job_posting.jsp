@@ -84,7 +84,7 @@ $(function() {
 	
 	//등록 버튼
 	$("#regist_btn").click(function() {
-		location.href="http://localhost/prj2/project_admin/5.recruitAd/recruit.jsp";
+		location.href="http://localhost/prj3/project_admin/5.recruitAd/recruit.jsp";
 	});//regist_btn
 	
 	
@@ -104,7 +104,7 @@ $(function() {
 <div id="header">
 
 <div class="logo">
-<a href="http://localhost/prj2/project_admin/3.recruitAdmin/job_posting.jsp"><img src="http://localhost/prj2/images/devplanet_big.png" alt="데브플래닛"></a>
+<a href="http://localhost/prj3/project_admin/3.recruitAdmin/job_posting.jsp"><img src="http://localhost/prj3/images/devplanet_big.png" alt="데브플래닛"></a>
 </div>
 
 <div class="page_name">	
@@ -112,7 +112,7 @@ $(function() {
 </div>
 
 <div class="main_page">
-<a href="http://localhost/prj2/project_admin/1.mainAdmin/main.jsp" class="list" >메인페이지</a>
+<a href="http://localhost/prj3/project_admin/1.mainAdmin/main.jsp" class="list" >메인페이지</a>
 </div>
 
 </div>
@@ -133,12 +133,16 @@ JobAdDAO jDAO = new JobAdDAO();
 //DAO의 select메서드 호출 (채용공고 현황(진행중,마감) 보여주기)
 List<SearchAdVO> sList = new ArrayList<SearchAdVO>();
 List<SearchAdVO> cList = new ArrayList<SearchAdVO>();
+List<SearchAdVO> subList = new ArrayList<SearchAdVO>();
 
 
 //기업명 검색이 없으면 ""
 String cName = request.getParameter("searchCorp");
 String cName2 = request.getParameter("searchCorp2");
+String cNameHidden = request.getParameter("cNameHidden");
 
+
+System.out.println(cNameHidden);
 
 if(cName==null){
 	cName="";
@@ -180,10 +184,41 @@ try{
 	closingToday = jDAO.selectCntclosing();
 	closedAds = jDAO.selectCntClosed();
 	
+	
+	
+	//리스트 가져오기
+	
+pageNum = request.getParameter("pageNum") == null ? 1 : Integer.parseInt(request.getParameter("pageNum"));
+	System.out.println("회사명: "+cName);
+	
+		
+	if(pageNum==1){
+		
+		if(cNameHidden!=null){
+			cName =cNameHidden;
+		}else{
+			cNameHidden="";			
+		}//end else
+		
+	}
+	
+	if(pageNum>1){ //썅 페이지넘버가 1이면 어떡해 그럼
+		cName = cNameHidden;
+	System.out.println("if탄 회사명: "+cName);
+	}
+	
+	
+	if(cName==null){
+		cName="";
+	} 
 
+	
+	sList = jDAO.selectAd(cName); //cName이 ""이거나 기업명임
+	System.out.println("리스트 길이: "+sList.size());
+		
+	
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 //현재 페이지 번호 가져오기
-pageNum = request.getParameter("pageNum") == null ? 1 : Integer.parseInt(request.getParameter("pageNum"));
 
 // 한 페이지에 보여줄 레코드 수
 pageSize = 10;
@@ -192,39 +227,48 @@ System.out.println("현재 페이지 번호: "+pageNum);
 
 // 시작 레코드와 끝 레코드 계산
 startRecord = (pageNum - 1) * pageSize + 1;
-endRecord = pageNum * pageSize;
+endRecord = pageNum * pageSize; 
+
 System.out.println("시작 레코드: "+startRecord+", 끝 레코드: "+endRecord);
 
-// 총 레코드 수와 총 페이지 수 계산
-totalRecordCount = totalAds; //dao.getTotalRecordCount();
+
+// 총 레코드 수와 총 페이지 수 계산 (셀렉되는 리스트에 따라 달라져야함)
+
+if(cName!=""){ //기업명이 입력됐음 
+	totalRecordCount = sList.size();
+}else{ //기업명이 ""
+totalRecordCount = totalAds; 
+}//end else
+	
 totalPageCount = (int) Math.ceil((double) totalRecordCount / pageSize);
 System.out.println("총 레코드 수: "+totalRecordCount+", 총 페이지 수: "+totalPageCount);
-
 
 // 시작 페이지와 끝 페이지 계산
 pageBlock = 5; // 페이지 링크 수
 startPage = ((pageNum - 1) / pageBlock) * pageBlock + 1;
 endPage = startPage + pageBlock - 1;
 if (endPage > totalPageCount) endPage = totalPageCount;
-System.out.println("시작 페이지: "+startPage+", 끝 페이지: "+endPage+"-------1트쨰---");
+//System.out.println("시작 페이지: "+startPage+", 끝 페이지: "+endPage);
 
-
-if (pageNum == totalPageCount) { 
-    endRecord = totalRecordCount; //39로 < 4페이지, 39개
+if (pageNum == totalPageCount) { //마지막 페이지에서는
+    endRecord = totalRecordCount; //총 레코드 수가 마지막 레코드
 } else { 
-    endRecord = pageNum * pageSize; // 40 < 4페이지, 40개
-}
+    endRecord = pageNum * pageSize; // 페이지 사이즈의 배수로 할당
+}//end else
 
-System.out.println("시작 페이지: "+startPage+", 끝 페이지: "+endPage+"-------2트쨰---");
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 	
-//리스트 가져오기
-	sList = jDAO.selectAd(cName);
-	List<SearchAdVO> subList = new ArrayList<SearchAdVO>();
-	
+
+
+ //나머지가 있을 때 총 페이지 수를 하나 뺌
+if (totalPageCount % pageSize != 0) {
+ totalPageCount--;
+}//end if
+
+
 	subList = sList.subList(startRecord - 1, endRecord); // sList에서 startRecord부터 endRecord 범위의 레코드만 가져옴
-	System.out.println(subList.size()+"서브리스트 크기");
+	System.out.println("==================================");
 	
 	request.setAttribute("sList", subList); // sublist를 request에 담아서 전달
 	
@@ -233,16 +277,12 @@ System.out.println("시작 페이지: "+startPage+", 끝 페이지: "+endPage+"-
 
 
 
-
-
-	
-
 }catch(SQLException se){
 	se.printStackTrace();
 %>	
 	<script>
 		alert("서버에 문제 발생! 잠시 후 다시 시도해주세요.");
-		location.href="http://localhost/prj2/project_admin/1.mainAdmin/main.jsp";
+		location.href="http://localhost/prj3/project_admin/1.mainAdmin/main.jsp";
 	</script>
 	
 <%	
@@ -255,12 +295,14 @@ pageContext.setAttribute("cList", cList);
 
 
 
+
 //request 객체에 속성 추가
 request.setAttribute("totalPageCount", totalPageCount);
 request.setAttribute("startPage", startPage);
 request.setAttribute("endPage", endPage);
 request.setAttribute("pageNum", pageNum);
 
+request.setAttribute("cName", cName);
 
 
 %>
@@ -269,7 +311,7 @@ request.setAttribute("pageNum", pageNum);
 
 <div class="title">
 <span class="title_text" style="text-align:center; top:10px; left:10px">
-<strong><a href="http://localhost/prj2/project_admin/3.recruitAdmin/job_posting.jsp"  style="text-decoration: none; color: inherit;">채용공고 현황</a></strong></span>
+<strong><a href="http://localhost/prj3/project_admin/3.recruitAdmin/job_posting.jsp"  style="text-decoration: none; color: inherit;">채용공고 현황</a></strong></span>
 </div>
 
 <div class="board">
@@ -292,7 +334,7 @@ request.setAttribute("pageNum", pageNum);
 <form name="search_frm" id="search_frm" method="post" action="">
 <input type="text" placeholder="기업명 검색" style="width:110px; height:25px" name="searchCorp" id="corp_text"/>
 <input type="button" class="btn" value="검색" id="corp_btn"/> 
-<input type="button" class="btn" value="새로고침" style="width:70px" id="refresh_btn" onclick="location.href='http://localhost/prj2/project_admin/3.recruitAdmin/job_posting.jsp'"/>
+<input type="button" class="btn" value="새로고침" style="width:70px" id="refresh_btn" onclick="location.href='http://localhost/prj3/project_admin/3.recruitAdmin/job_posting.jsp'"/>
 </form>
 </div>
 
@@ -303,8 +345,9 @@ request.setAttribute("pageNum", pageNum);
 
 
 <div class="chart">
-<form name="ongoingFrm" id="ongoingFrm" action="http://localhost/prj2/project_admin/3.recruitAdmin/total_applicant.jsp">
+<form name="ongoingFrm" id="ongoingFrm" action="http://localhost/prj3/project_admin/3.recruitAdmin/total_applicant.jsp">
 <input type="hidden" name="pageNum"/>
+<input type="hidden" name="cNameHidden" value="${cName }"/>
 <table class="chart_table table1">
 <colgroup>
 			<col style="width:3%">
@@ -340,12 +383,13 @@ if(sList.size()==0){ //검색된 결과가 없으면
 %>
 
 
-
+<!--서브리스트야 왜 안되는거야~~  -->
 <c:forEach var="sVO" items="${sList}" varStatus="i">
 
 <tr>
    <td>
-   <c:out value="${i.count }"/>
+<%--    <c:out value="${(i.count)*pageNum }"/> --%>
+   <c:out value="${(i.count) + (pageNum-1)*10 }"/> 
    </td>
    <td><c:out value="${sVO.cName}"/></td> <!-- 기업명 출력 -->
    <td><c:out value="${sVO.title}"/></td> <!-- 공고 제목 출력 -->
@@ -362,14 +406,14 @@ if(sList.size()==0){ //검색된 결과가 없으면
  		 session.setAttribute("jobTitle", jobTitle); */
 
   	%>
-    <a href="http://localhost/prj2/project_admin/3.recruitAdmin/total_applicant.jsp?jobNum=${sVO.jobNum}&cName=${sVO.cName}&jobTitle=${sVO.title}">  
+    <a href="http://localhost/prj3/project_admin/3.recruitAdmin/total_applicant.jsp?jobNum=${sVO.jobNum}&cName=${sVO.cName}&jobTitle=${sVO.title}">  
    총 지원자 <c:out value="${sVO.totalApply}"/>명</a>
    </td> <!-- 총 지원자 수 출력 -->
    <td><c:out value="${sVO.inputDate}"/></td><!-- 공고 등록일 출력 -->
    <td><c:out value="${sVO.endDate}"/></td><!-- 공고 마감일 출력 -->
 
-   <td><a href="http://localhost/prj2/project_admin/5.recruitAd/recruitmod.jsp?jobNum=${sVO.jobNum}">수정</a><!--공고 수정페이지  -->
-    / <a href="http://localhost/prj2/project_admin/5.recruitAd/delete_process.jsp?jobNum=${sVO.jobNum}" onclick="return confirm('[${sVO.cName}] 기업의 해당 공고를 삭제하시겠어요?')" id="delete">삭제</a></td><!--삭제처리 페이지  -->
+   <td><a href="http://localhost/prj3/project_admin/5.recruitAd/recruitmod.jsp?jobNum=${sVO.jobNum}">수정</a><!--공고 수정페이지  -->
+    / <a href="http://localhost/prj3/project_admin/5.recruitAd/delete_process.jsp?jobNum=${sVO.jobNum}" onclick="return confirm('[${sVO.cName}] 기업의 해당 공고를 삭제하시겠어요?')" id="delete">삭제</a></td><!--삭제처리 페이지  -->
 </tr>
 </c:forEach>
 </tbody>
@@ -391,7 +435,7 @@ if(sList.size()==0){ //검색된 결과가 없으면
         <a class="current"><c:out value="${pageNum}" /></a>
       </c:when>
       <c:otherwise>
-        <a href="${request.requestURI}?pageNum=${i}"><c:out value="${i}" /></a>
+        <a href="${request.requestURI}?pageNum=${i}${ cName ne ""?"&cNameHidden=":"" }${ cName }"><c:out value="${i}" /></a>
       </c:otherwise>
     </c:choose>
   </c:forEach>
@@ -434,16 +478,16 @@ if(sList.size()==0){ //검색된 결과가 없으면
 </div><!-- board -->
 
 <div class="search2">
-<form action="http://localhost/prj2/project_admin/3.recruitAdmin/job_posting.jsp" name="deadline_frm" id="deadline_frm">
+<form action="http://localhost/prj3/project_admin/3.recruitAdmin/job_posting.jsp" name="deadline_frm" id="deadline_frm">
 <input type="text" placeholder="기업명 검색" style="width:110px; height:25px" name="searchCorp2" id="dead_text" >
 <input type="button" class="btn" value="검색" id="dead_btn"> 
-<input type="button" class="btn" value="새로고침" style="width:70px" id="refresh_btn" onclick="location.href='http://localhost/prj2/project_admin/3.recruitAdmin/job_posting.jsp'"/>
+<input type="button" class="btn" value="새로고침" style="width:70px" id="refresh_btn" onclick="location.href='http://localhost/prj3/project_admin/3.recruitAdmin/job_posting.jsp'"/>
 
 </form>
 </div>
 
 <div class="chart2">
-<form name="deadlineFrm" id="deadlineFrm" action="http://localhost/prj2/project_admin/3.recruitAdmin/total_applicant.jsp">
+<form name="deadlineFrm" id="deadlineFrm" action="http://localhost/prj3/project_admin/3.recruitAdmin/total_applicant.jsp">
 <table class="chart_table">
 <colgroup>
 			<col style="width:3%">
@@ -498,7 +542,7 @@ if(cList.size()==0){ //검색된 결과가 없으면
  		 session.setAttribute("jobTitle", jobTitle);
 
   	%>
-    <a href="http://localhost/prj2/project_admin/3.recruitAdmin/total_applicant.jsp?jobNum=${cVO.jobNum}&cName=${cVO.cName}&jobTitle=${sVO.title}">  
+    <a href="http://localhost/prj3/project_admin/3.recruitAdmin/total_applicant.jsp?jobNum=${cVO.jobNum}&cName=${cVO.cName}&jobTitle=${sVO.title}">  
    총 지원자 <c:out value="${cVO.totalApply}"/>명</a>
    </td> <!-- 총 지원자 수 출력 -->
    <td><c:out value="${cVO.inputDate}"/></td><!-- 공고 등록일 출력 -->
@@ -506,8 +550,8 @@ if(cList.size()==0){ //검색된 결과가 없으면
    
    <!--날 좀 고쳐라  -->
    <!--페이지 연결 해야함-->
-   <td><a href="http://localhost/prj2/project_admin/5.recruitAd/recruitmod.jsp?jobNum=${cVO.jobNum}">수정</a><!--공고 수정페이지  -->
-    / <a href="http://localhost/prj2/project_admin/5.recruitAd/delete_process.jsp?jobNum=${cVO.jobNum}" onclick="return confirm('[${cVO.cName}] 기업의 해당 공고를 삭제하시겠어요?')">삭제</a></td><!--삭제처리 페이지  -->
+   <td><a href="http://localhost/prj3/project_admin/5.recruitAd/recruitmod.jsp?jobNum=${cVO.jobNum}">수정</a><!--공고 수정페이지  -->
+    / <a href="http://localhost/prj3/project_admin/5.recruitAd/delete_process.jsp?jobNum=${cVO.jobNum}" onclick="return confirm('[${cVO.cName}] 기업의 해당 공고를 삭제하시겠어요?')">삭제</a></td><!--삭제처리 페이지  -->
 </tr>
 </c:forEach>
 </tbody>

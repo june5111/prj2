@@ -28,7 +28,8 @@ public class AdminUserDAO {
 			StringBuilder countCorp = new StringBuilder();
 			countCorp
 			.append("    select count(user_id)  ")
-			.append("    from user_table    ");
+			.append("    from user_table    ")
+			.append("    where quit_date is null    ");
 			
 			pstmt = con.prepareStatement(countCorp.toString());
 			

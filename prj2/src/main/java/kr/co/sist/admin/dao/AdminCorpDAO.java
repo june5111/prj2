@@ -25,7 +25,9 @@ public class AdminCorpDAO {
 			con = dbCon.getConn();
 
 			StringBuilder countCorp = new StringBuilder();
-			countCorp.append("    select count(corp_num)  ").append("    from corp    ");
+			countCorp
+			.append("    select count(corp_num)  ")
+			.append("    from corp    ");
 
 			pstmt = con.prepareStatement(countCorp.toString());
 

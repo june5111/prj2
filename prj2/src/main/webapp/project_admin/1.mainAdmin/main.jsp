@@ -281,7 +281,7 @@ $(function() {
 				</div>
 				<div id="all">
 					<p>총 회원수 : <span>${ countAllUser }명</span></p>
-					<p>총 기업수 : <span>${ countAllCorp }명</span></p>
+					<p>총 기업수 : <span>${ countAllCorp }기업</span></p>
 					<p>구직자 수 : <span>${ countAllJob }명</span></p>
 				</div>
 			</div>

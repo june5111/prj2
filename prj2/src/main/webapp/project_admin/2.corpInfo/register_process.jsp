@@ -19,7 +19,7 @@ request.setCharacterEncoding("UTF-8");
 <!-- 이미지 폴더에 저장 -->
 <%
 		// 1. 저장 디렉토리를 설정
-		File saveDirectory = new File("E:/dev/workspace/prj3/src/main/webapp/upload");
+		File saveDirectory = new File("C:/Users/user/git/prj2/prj2/src/main/webapp/upload");
 		int totalMaxSize = 1024*1024*500;
 		int fileSize = 1024*1024*10;
 		// 2. FileUpload Component 생성 (MultipartRequest) => 생성함과 동시에 파일이 업로드된다.
@@ -41,8 +41,6 @@ request.setCharacterEncoding("UTF-8");
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date establishYear = sdf.parse(establishYearString);
 		java.sql.Date sqlEstablishYear = new java.sql.Date(establishYear.getTime());  */  
-		
-		
 				
 		// VO값 받기
 		acVO.setName(mr.getParameter("name"));
@@ -64,19 +62,13 @@ AdminCorpDAO acDAO=new AdminCorpDAO();
 try{
 	acDAO.insertCorp(acVO);
 	acDAO.insertRepresent(acVO);
-	/* // 대표자 배열 각각의 요소로 DB에 넣기
-	for(int i=0; i<leng; i++) {
-		acDAO.insertRepresent(nameList[i]); //--------------------------대표자명 insert메소드 추가 호출!! */
-		
 	
 	out.println("<script>");
     out.println("alert('기업이 등록되었습니다.');");
     out.println("location.href = 'http://localhost/prj2/project_admin/2.corpInfo/company_info.jsp';"); // 수정 후 이동할 페이지 경로
     out.println("</script>"); 
-
 }catch(SQLException se) {
 	se.printStackTrace();
-	
 	out.println("<script>");
     out.println("alert('오류가 발생했습니다. 다시 시도해주세요.');");
     out.println("history.go(-1);");

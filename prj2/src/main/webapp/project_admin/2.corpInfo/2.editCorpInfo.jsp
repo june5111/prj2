@@ -195,13 +195,24 @@ $(function(){
 	    }); */
 	    
 	    $("#repName").val(''); // 입력한 내용 리셋
+	    addRepresent();
 	});
 	
 	$(".delName").click(function() {
         var index = $(".delName").index(this); // 삭제 버튼의 인덱스
         nameList.splice(index, 1); // 해당 인덱스의 이름 제거
         $(this).closest(".repTr").remove();
+        deleteRepresent();
     });
+	
+	// 삭제 버튼 시 메서드 실행
+	function deleteRepresent() {
+		acDAO.deleteRepresent(corpNum);
+	}
+	
+	function addRepresent() {
+		acDAO.updateRepresent(acVO);
+	}
 	
 	$("#modifyBtn").click(function(){
 		if($("#name").val() == "") {
@@ -349,7 +360,7 @@ function img() {
 	
 	AdminCorpDAO acDAO = new AdminCorpDAO();
 	AdminCorpVO acVO = acDAO.selectCorp(corpNum);
-	acDAO.deleteRepresent(corpNum);
+	// acDAO.deleteRepresent(corpNum);
 	%>
 
 	
@@ -440,7 +451,7 @@ function img() {
 											<input type="button" value="추가" name="addBtn" id="addBtn">
 											
 											<p id="repP"></p> 
-											<table>
+											<table id="repTable">
 												<%
 												String[] reps = acVO.getRepresentativeName();
 												String[] splitReps = reps[0].split(","); // ","로 구분된 문자열을 배열로 분할

@@ -15,6 +15,7 @@
 
 /* #header, #container, #container1 원래는 100%. */
 #header {
+	background-color: #323743;	
 	width: 2000px;
 	height: 220px;
 	padding-right: 13%;
@@ -30,6 +31,7 @@
 }
 
 #title #mainTitle {
+	color: white;
 	margin-bottom: 40px;
 }
 
@@ -38,6 +40,7 @@
 }
 
 #container {
+	background-color: #f7f7f7;
 	width: 2000px;
 	height: 100%;
 	text-align: left;
@@ -47,6 +50,7 @@
 }
 
 #container1 {
+	background-color: #f7f7f7;
 	width: 2000px;
 	height: 100%;
 	text-align: left;
@@ -64,6 +68,7 @@
 }
 
 #ftitle {
+	color: #f1f1f1;
 	font-size: 30px;
 	padding-bottom: 10px;
 }
@@ -81,6 +86,7 @@
 h1 {
 	display: inline;
 	padding-left: 5%;
+	color: white;
 }
 
 h2 {
@@ -236,6 +242,8 @@ select::-ms-expand {
   cursor: pointer;
   font-size: 15px;
 }
+
+a { text-decoration-line: none; }
 </style>
 
 <!-- jQuery CDN 시작-->
@@ -372,7 +380,7 @@ pageContext.setAttribute("nameC", company);
 <div wrap="">
 	<div id="header">
 		<div id="innerBar">
-			<p><a href="http://localhost/prj2/project_admin/1.mainAdmin/main.jsp">메인 페이지</a></p>
+			<p><a style="color: #f1f1f1" href="http://localhost/prj2/project_admin/1.mainAdmin/main.jsp">메인 페이지</a></p>
 		</div>
 		<div id="mainTitle">
 			<h1>DEVPLANET </h1> 
@@ -380,7 +388,7 @@ pageContext.setAttribute("nameC", company);
 		</div>
 		<div id="info">
 			<p id="ftitle">채용공고 등록</p>
-			<p>채용공고를 등록할 수 있습니다.</p>
+			<p style="color: #f1f1f1">채용공고를 등록할 수 있습니다.</p>
 		</div>
 	</div>
 	<hr/>

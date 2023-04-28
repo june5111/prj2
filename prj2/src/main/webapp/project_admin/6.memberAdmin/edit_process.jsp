@@ -82,11 +82,6 @@ try {
     out.println("alert('오류가 발생했습니다. 다시 시도해주세요.');");
     out.println("history.go(-1);");
     out.println("</script>");
-    %>
-    <script>
-        alert("시스템 작업도중 문제가 발생했습니다. 잠시후 다시시도해 주세요");
-    </script>
-    <%
 }
 %>
 

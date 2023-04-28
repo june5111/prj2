@@ -13,7 +13,7 @@
 <meta charset="UTF-8">
 <title>기업정보관리</title>
 <style type="text/css">
-#wrap{ margin:0px auto; width:1200px; height:900px; /* background-color: #333  */ }
+#wrap{ margin:0px auto; width:1200px; height:1000px; /* background-color: #333  */ }
 #header{ position:relative; height:100px;  }
 #container{ position:relative; width: 100%; height: 100%;  background-color: #f7f7f7 }
 .logo{ position:absolute; width:180px; height:40px; top:30px; left:0px; border-right:1px solid #CCC }
