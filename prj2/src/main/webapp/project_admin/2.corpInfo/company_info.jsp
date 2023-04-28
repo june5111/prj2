@@ -51,7 +51,7 @@ $(function() {
 	});//corp_btn
 	
 	$("#regist_btn").click(function() {
-		location.href= "http://localhost/prj2/project_admin/2.corpInfo/1.registerCorpInfo.jsp";
+		location.href= "http://localhost/prj2/project_admin/2.corpInfo/registerCorpInfo.jsp";
 	});//regist_btn 
 });//ready
 
@@ -163,7 +163,7 @@ pageContext.setAttribute("corpCount", corpCount);
    		<td><c:out value="${ val.addr }"/></td>
     	<%-- <td><c:out value="${ val.representativeName[0] }"/></td> --%> 
    		<td>
-   			<a href="http://localhost/prj2/project_admin/2.corpInfo/2.editCorpInfo.jsp?corp_num=${ val.num }">수정</a> / 
+   			<a href="http://localhost/prj2/project_admin/2.corpInfo/editCorpInfo.jsp?corp_num=${ val.num }">수정</a> / 
    			<a href="#" onclick="confirmDelete(${ val.num })">삭제</a>
    		</td>
 	</tr>

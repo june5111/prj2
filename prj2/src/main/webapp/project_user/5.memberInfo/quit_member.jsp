@@ -95,7 +95,7 @@ $(function() {
 			<div class="secNav">
 				<ol>
 					<li class="mn1"><a href=""><span></span>개인정보 수정</a></li>
-					<li class="mn2"><a href="http://localhost/prj2/project_user/5.memberInfo/3.confirmPass.jsp"><span></span>비밀번호변경</a></li>
+					<li class="mn2"><a href="http://localhost/prj2/project_user/5.memberInfo/confirmPass.jsp"><span></span>비밀번호변경</a></li>
 					<li class="mn3 end"><a href="/Customer_C/ETC/CC_leave.asp?Customer_C_Oem_No=1" target="_blank"><span class="span"></span>회원탈퇴</a></li>
 					<!-- <li class="mn4"><a href="/Text_User/User_Mailing_Mng.asp?OEM_No=1"><span></span>메일링/문자메시지 설정</a></li>
 					<li class="mn3 end"><a href="/Customer_C/ETC/CC_leave.asp?Customer_C_Oem_No=1" target="_blank"><span></span>회원탈퇴</a></li> -->

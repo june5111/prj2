@@ -438,15 +438,15 @@ td {
 					<h2 class="lnbTit">입사지원 관리</h2>
 					<ul>
 						<li><a class=on
-							href="http://localhost/prj2/project_user/4.resume/4.job_application.jsp">입사지원 현황</a></li>
+							href="http://localhost/prj2/project_user/4.resume/job_application.jsp">입사지원 현황</a></li>
 					</ul>
 				</div>
 
 				<div class="lnbGroup">
 					<h2 class="lnbTit">회원정보 관리</h2>
 					<ul>
-						<li><a href="http://localhost/prj2/project_user/5.memberInfo/2.correctionInfo.jsp">회원정보 수정</a></li>
-						<li><a href="http://localhost/prj2/project_user/5.memberInfo/3.confirmPass.jsp">비밀번호 변경</a></li>
+						<li><a href="http://localhost/prj2/project_user/5.memberInfo/correctionInfo.jsp">회원정보 수정</a></li>
+						<li><a href="http://localhost/prj2/project_user/5.memberInfo/confirmPass.jsp">비밀번호 변경</a></li>
 					</ul>
 				</div>
 			</section>

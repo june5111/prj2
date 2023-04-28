@@ -18,7 +18,7 @@ boolean flag=uDAO.selectConPass(lVO); // uDAO의 selectConPass의 반환값이 t
 if(flag==true) {
 	%>
 	<script>
-	location.href="2.correctionInfo.jsp";
+	location.href="correctionInfo.jsp";
 	</script>
 	<%
 }else { // 반환된 값이 false면 비밀번호를 잘못 입력했다는 경고창을 띄우고 뒤로 간다.

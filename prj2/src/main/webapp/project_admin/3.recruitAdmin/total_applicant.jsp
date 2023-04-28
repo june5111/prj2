@@ -296,8 +296,8 @@ if(list.size()==0){ //검색된 결과가 없으면
 <tr>
    <td><c:out value="${i.count }"/></td>
    <%-- <td><c:out value="${aVO.cName}" /></td>기업명 --%>
-   <%-- <td><a href="http://localhost/prj2/project_admin/4.resumeView/1.resumeView.jsp?id=${aVO.id}&rNum=${aVO.rNum}&applyNum=${aVO.applyNum}"> --%>
-   <td><a href="http://localhost/prj2/project_admin/4.resumeView/1.resumeView.jsp?jobNum=<%=jobNum%>&id=${aVO.id}&rNum=${aVO.rNum}&applyNum=${aVO.applyNum}">
+   <%-- <td><a href="http://localhost/prj2/project_admin/4.resumeView/resumeView.jsp?id=${aVO.id}&rNum=${aVO.rNum}&applyNum=${aVO.applyNum}"> --%>
+   <td><a href="http://localhost/prj2/project_admin/4.resumeView/resumeView.jsp?jobNum=<%=jobNum%>&id=${aVO.id}&rNum=${aVO.rNum}&applyNum=${aVO.applyNum}">
    <c:out value="${aVO.resumeTitle}" /></a></td><%-- 이력서 제목 --%>
    <td><c:out value="${aVO.name }"/></td>
    <td>
