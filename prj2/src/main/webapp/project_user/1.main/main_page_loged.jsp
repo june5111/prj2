@@ -71,7 +71,7 @@ if(session.getAttribute("sesVO")==null) { // 정상적인 접근이라면 세션
 
 $(function() {
 	$("#apply").click(function() {
-		location.href="http://localhost/prj2/project_user/4.resume/4.job_application.jsp";
+		location.href="http://localhost/prj2/project_user/4.resume/job_application.jsp";
 	});//click
 	
 	$("#searchBtn").click(function() {
@@ -162,8 +162,8 @@ function logout() {
  <div id="loginbox">
  
  <input type="text" id="named" readonly="readonly" value="<%= userName%>"/><label id="lab">님</label>
- <span id="appli"><a href="http://localhost/prj2/project_user/5.memberInfo/1.confrimInfo.jsp">회원정보 수정</a></span>
- <a href="http://localhost/prj2/project_user/4.resume/3.resume_present.jsp"><button type="button" id="loginb"><strong>이력서 현황</strong></button></a>
+ <span id="appli"><a href="http://localhost/prj2/project_user/5.memberInfo/confrimInfo.jsp">회원정보 수정</a></span>
+ <a href="http://localhost/prj2/project_user/4.resume/resume_present.jsp"><button type="button" id="loginb"><strong>이력서 현황</strong></button></a>
  <button type="button" id="apply"><strong>지원 현황</strong></button>
  <button type="button" id="logout" onclick="logout()">로그아웃</button>
  

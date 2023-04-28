@@ -55,7 +55,7 @@ $(function() {
 			<div class="logWrap" id="loginFormWrite">
 				<h2 class="blind">로그인</h2>
 
-				<form action="http://localhost/prj2/project_user/2.join/login_process.jsp" name="loginFrm" method="post">
+				<form action="http://localhost/prj2/project_user/2.join/login_process.jsp" id="loginFrm" name="loginFrm" method="post">
 				<fieldset class="login_form"><legend class="blind">로그인 입력폼</legend>
 					
 
