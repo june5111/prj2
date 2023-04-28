@@ -12,7 +12,6 @@ import kr.co.sist.admin.vo.CertificateVO;
 import kr.co.sist.admin.vo.EducationVO;
 import kr.co.sist.admin.vo.LanguageVO;
 import kr.co.sist.admin.vo.ResumeInfoVO;
-import kr.co.sist.admin.vo.SkillVO;
 import kr.co.sist.dao.DbConnection;
 
 public class ApplyDAO {
