@@ -434,7 +434,7 @@ function img() {
 									<tr>
 										<td>
 											<label>홈페이지</label><br> 
-											<input type="text" class="text" placeholder="내용을 입력해주세요" name="homepage" id="homepage" <%= acVO.getHomepage() != null ? acVO.getHomepage() : "" %>>
+											<input type="text" class="text" name="homepage" id="homepage" value="<%= acVO.getHomepage() %>">
 										</td>
 										
 										<td>
