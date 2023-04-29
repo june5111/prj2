@@ -34,6 +34,7 @@
 th, tr{ border:1px solid #323743; border:none; border-bottom:0.5px solid #CCC }
 td{ text-align:center; font-family:맑은 고딕; font-size:14px; border-bottom:0.2px solid #CCC }
 a { text-decoration-line: none; }
+tr.hover:hover{background-color: #D5E3E3;}
 a:link { color : black; }
 a:visited { color : black; }
 a:hover { color : blue; } 
@@ -153,7 +154,7 @@ pageContext.setAttribute("corpCount", corpCount);
 
 <tbody>
 <c:forEach var="val" items="${ result }" varStatus="i">
-	<tr>
+	<tr class="hover">
    		<td><c:out value="${ i.count }"/></td>
    		<td><c:out value="${ val.name }"/></td>
    		<td><c:out value="${ val.type }"/></td>

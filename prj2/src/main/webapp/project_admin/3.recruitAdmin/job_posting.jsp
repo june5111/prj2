@@ -42,6 +42,7 @@ td{ text-align:center; font-family:맑은 고딕; font-size:14px; border-bottom:
 .table1 {
     margin-bottom:100px;
   }
+  tr.hover:hover{background-color: #D5E3E3;}
 
 </style>
 <!-- CDN 시작 -->
@@ -268,7 +269,7 @@ if(sList.size()==0){ //검색된 결과가 없으면
 
 <c:forEach var="sVO" items="${sList}" varStatus="i">
 
-<tr>
+<tr class="hover">
    <td>
    <c:out value="${i.count }"/>
    </td>
@@ -368,7 +369,7 @@ if(cList.size()==0){ //검색된 결과가 없으면
 <c:forEach var="cVO" items="${cList}" varStatus="i">
  	<input type="hidden" name="cjobNumH" value="${cVO.jobNum}"> 
    <input type="hidden" name="ccNameH" value="${cVO.cName}"> 
-<tr>
+<tr class="hover">
    <td><c:out value="${i.count }"/></td>
    <td><c:out value="${cVO.cName}"/></td> <!-- 기업명 출력 -->
    <td><c:out value="${cVO.title}"/></td> <!-- 공고 제목 출력 -->

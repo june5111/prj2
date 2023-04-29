@@ -16,11 +16,11 @@ public class JobAdDAO {
 
 	
 	
-	//<±¸ÀÎ°ø°í ´ë½Ãº¸µå>
+	//<ï¿½ï¿½ï¿½Î°ï¿½ï¿½ï¿½ ï¿½ï¿½Ãºï¿½ï¿½ï¿½>
 	
 	
 	
-		//ÃÑ °ø°í ¼ö - ¿À´Ã ÀÚÁ¤±îÁö
+		//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		public int selectCntAll() throws SQLException {
 			int result=0;
 			
@@ -30,7 +30,7 @@ public class JobAdDAO {
 			ResultSet rs=null;
 			
 			try {
-				//db¿¬°á
+				//dbï¿½ï¿½ï¿½ï¿½
 				con=db.getConn();
 				
 			
@@ -44,7 +44,7 @@ public class JobAdDAO {
 				rs=pstmt.executeQuery();
 				
 				 if (rs.next()) {
-				      result = rs.getInt(1); //1¹øÂ° ¿­
+				      result = rs.getInt(1); //1ï¿½ï¿½Â° ï¿½ï¿½
 				    }//end if
 				
 				 
@@ -61,7 +61,7 @@ public class JobAdDAO {
 	
 	
 	
-	//°ø°í ÁßÀÎ ±â¾÷
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	public int selectCountAdCorp() throws SQLException {
 		int result=0;
 		
@@ -71,7 +71,7 @@ public class JobAdDAO {
 		ResultSet rs=null;
 		
 		try {
-			//db¿¬°á
+			//dbï¿½ï¿½ï¿½ï¿½
 			con=db.getConn();
 			
 		
@@ -79,7 +79,7 @@ public class JobAdDAO {
 			selectCountCorp.append("SELECT COUNT(DISTINCT name) ")
 		        .append("FROM job_ad ")
 		        .append("WHERE trunc(end_date) >= trunc(sysdate)");
-			//¿ÀÈÄ 11½Ã 59ºĞ±îÁö
+			//ï¿½ï¿½ï¿½ï¿½ 11ï¿½ï¿½ 59ï¿½Ğ±ï¿½ï¿½ï¿½
 			
 			
 		
@@ -87,7 +87,7 @@ public class JobAdDAO {
 			rs=pstmt.executeQuery();
 			
 			 if (rs.next()) {
-			      result = rs.getInt(1); //1¹øÂ° ¿­
+			      result = rs.getInt(1); //1ï¿½ï¿½Â° ï¿½ï¿½
 			    }//end if
 			
 			 
@@ -104,7 +104,7 @@ public class JobAdDAO {
 	
 	
 	
-	//¿À´Ã ¸¶°¨ °ø°í
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public int selectCntclosing() throws SQLException {
 		int result=0;
 		
@@ -115,7 +115,7 @@ public class JobAdDAO {
 		ResultSet rs=null;
 		
 		try {
-			//db¿¬°á
+			//dbï¿½ï¿½ï¿½ï¿½
 			con=db.getConn();
 			
 			StringBuilder selectClosingAd = new StringBuilder();
@@ -127,7 +127,7 @@ public class JobAdDAO {
 				rs=pstmt.executeQuery();
 			
 				if (rs.next()) {
-				      result = rs.getInt(1); //1¹øÂ° ¿­
+				      result = rs.getInt(1); //1ï¿½ï¿½Â° ï¿½ï¿½
 				    }//end if
 				
 			}finally {
@@ -139,7 +139,7 @@ public class JobAdDAO {
 
 	
 	
-	//¸¶°¨µÈ °ø°í
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public int selectCntClosed() throws SQLException {
 		int result=0;
 		
@@ -149,7 +149,7 @@ public class JobAdDAO {
 		ResultSet rs=null;
 		
 		try {
-			//db¿¬°á
+			//dbï¿½ï¿½ï¿½ï¿½
 			con=db.getConn();
 			
 		
@@ -163,7 +163,7 @@ public class JobAdDAO {
 			rs=pstmt.executeQuery();
 			
 			 if (rs.next()) {
-			      result = rs.getInt(1); //1¹øÂ° ¿­
+			      result = rs.getInt(1); //1ï¿½ï¿½Â° ï¿½ï¿½
 			    }//end if
 			
 			 
@@ -180,235 +180,235 @@ public class JobAdDAO {
 	
 	
 	
-	//±¸ÀÎ°ø°í ÇöÈ²
-	public List<SearchAdVO> selectAd(String cName) throws SQLException {
-		
-		List<SearchAdVO> list=new ArrayList<SearchAdVO>();
-		
-		DbConnection db=DbConnection.getInstance();
-		Connection con=null;
-		PreparedStatement pstmt=null;
-		ResultSet rs=null;
-		
-		try {
-			//db¿¬°á
-			con=db.getConn();
-			
-			
-		if(cName.isEmpty()) { //ÀÔ·ÂµÈ ±â¾÷¸íÀÌ ¾øÀ¸¸é ¸ğµç ±â¾÷°ø°í¸¦ select
-			
-			//¸ğµç ±â¾÷°ø°í ÇöÈ²À» selectÇÏ´Â Äõ¸®¹®
-			StringBuilder selectAds = new StringBuilder();
+
+	   
+	   //êµ¬ì¸ê³µê³  í˜„í™©
+	   public List<SearchAdVO> selectAd(String cName) throws SQLException {
+	      
+	      List<SearchAdVO> list=new ArrayList<SearchAdVO>();
+	      
+	      DbConnection db=DbConnection.getInstance();
+	      Connection con=null;
+	      PreparedStatement pstmt=null;
+	      ResultSet rs=null;
+	      
+	      try {
+	         //dbì—°ê²°
+	         con=db.getConn();
+	         
+	         
+	      if(cName.isEmpty()) { //ì…ë ¥ëœ ê¸°ì—…ëª…ì´ ì—†ìœ¼ë©´ ëª¨ë“  ê¸°ì—…ê³µê³ ë¥¼ select
+	         
+	         //ëª¨ë“  ê¸°ì—…ê³µê³  í˜„í™©ì„ selectí•˜ëŠ” ì¿¼ë¦¬ë¬¸
+	         StringBuilder selectAds = new StringBuilder();
+	   
+	         
+	         selectAds.append("SELECT job_ad.JOB_NUM, name, TITLE, INPUT_DATE, END_DATE, COUNT(CASE WHEN apply.cancel = 'NC' THEN user_id END) as TOTAL_APPLY ")
+	           .append("FROM job_ad ")
+	           .append("LEFT OUTER JOIN apply ON job_ad.job_num = apply.job_num ")
+	           .append("where trunc(end_date) >= trunc(sysdate)   ")
+	           .append("GROUP BY job_ad.JOB_NUM, name, TITLE, INPUT_DATE, END_DATE   ")
+	           .append("order by trunc(end_date)"   );
+	         
+	         
+	         pstmt=con.prepareStatement(selectAds.toString());
+	         rs=pstmt.executeQuery();
+	         
+	         SearchAdVO sVO=null;
+	          // ResultSetì„ ë°˜ë³µí•˜ì—¬ ê²°ê³¼ë¥¼ ì½ì–´ë“¤ì´ê³  SearchAdVOì— ì €ì¥
+	          while (rs.next()) {
+	              sVO = new SearchAdVO();
+	              sVO.setJobNum(rs.getInt("JOB_NUM"));
+	              sVO.setcName(rs.getString("name"));
+	              sVO.setTitle(rs.getString("TITLE"));
+	              sVO.setInputDate(rs.getDate("INPUT_DATE"));
+	              sVO.setEndDate(rs.getDate("END_DATE"));
+	              sVO.setTotalApply(rs.getInt("TOTAL_APPLY"));
+	              list.add(sVO);
+	          }//end while
+	          
+	          
+	          
+	      }else { //ì…ë ¥ëœ ê¸°ì—…ëª…ìœ¼ë¡œ ê¸°ì—… ê³µê³  í˜„í™©ì„ select
+	         
+	      
+	      StringBuilder selectAd = new StringBuilder();
+	   
+	      
+	      
+	      selectAd.append("SELECT job_ad.JOB_NUM, name, TITLE, INPUT_DATE, END_DATE, COUNT(CASE WHEN apply.cancel = 'NC' THEN user_id END) as TOTAL_APPLY ")
+	        .append("FROM job_ad ")
+	        .append("LEFT OUTER JOIN apply ON job_ad.job_num = apply.job_num ")
+	        .append("WHERE trunc(end_date) >= trunc(sysdate) and name = ? ")
+	        .append("GROUP BY job_ad.JOB_NUM, name, TITLE, INPUT_DATE, END_DATE   ")
+	        .append("order by trunc(end_date)");
+	      
+	            pstmt=con.prepareStatement(selectAd.toString());
+	            pstmt.setString(1, cName);
+	      
+	            rs=pstmt.executeQuery();
+	      
+	      SearchAdVO sVO=null;
+	       // ResultSetì„ ë°˜ë³µí•˜ì—¬ ê²°ê³¼ë¥¼ ì½ì–´ë“¤ì´ê³  SearchAdVOì— ì €ì¥
+	       while (rs.next()) {
+	           sVO = new SearchAdVO();
+	           sVO.setJobNum(rs.getInt("JOB_NUM"));
+	           sVO.setcName(rs.getString("name"));
+	           sVO.setTitle(rs.getString("TITLE"));
+	           sVO.setTotalApply(rs.getInt("total_apply"));
+	           sVO.setInputDate(rs.getDate("INPUT_DATE"));
+	           sVO.setEndDate(rs.getDate("END_DATE"));
+	           list.add(sVO);
+	       }//end while
+	          
+	       
+	      }//end else
+	         
+	      
+	      
+	      }finally {
+	         db.dbClose(rs, pstmt, con);
+	      }//end finally
+	      
+	      
+	         return list;
+	      
+	   }//selectAd
+	   
+	   
+	   
+	   
+	   //ë§ˆê°ëœ êµ¬ì¸ê³µê³  í˜„í™©
+	      public List<SearchAdVO> selectClosedAd(String cName2) throws SQLException {
+	         
+	         List<SearchAdVO> list=new ArrayList<SearchAdVO>();
+	         
+	         DbConnection db=DbConnection.getInstance();
+	         Connection con=null;
+	         PreparedStatement pstmt=null;
+	         ResultSet rs=null;
+	         
+	         try {
+	            //dbì—°ê²°
+	            con=db.getConn();
+	            
+	            
+	         if(cName2.isEmpty()) { //ì…ë ¥ëœ ê¸°ì—…ëª…ì´ ì—†ìœ¼ë©´ ëª¨ë“  ê¸°ì—…ê³µê³ ë¥¼ select
+	            
+	            //ë§ˆê°ëœ ëª¨ë“  ê¸°ì—…ê³µê³  í˜„í™©ì„ selectí•˜ëŠ” ì¿¼ë¦¬ë¬¸
+	            StringBuilder selectAds = new StringBuilder();
+	            
+	            
+	            selectAds.append("SELECT job_ad.JOB_NUM, name, TITLE, INPUT_DATE, END_DATE, COUNT(CASE WHEN apply.cancel = 'NC' THEN user_id END) as TOTAL_APPLY ")
+	              .append("FROM job_ad ")
+	              .append("LEFT OUTER JOIN apply ON job_ad.job_num = apply.job_num ")
+	              .append("WHERE trunc(END_DATE) < trunc(sysdate) ")
+	              .append("GROUP BY job_ad.JOB_NUM, name, TITLE, INPUT_DATE, END_DATE   ")
+	              .append("order by trunc(end_date)");
+	            
+	            
+	            
+	            pstmt=con.prepareStatement(selectAds.toString());
+	            rs=pstmt.executeQuery();
+	            
+	            SearchAdVO sVO=null;
+	             // ResultSetì„ ë°˜ë³µí•˜ì—¬ ê²°ê³¼ë¥¼ ì½ì–´ë“¤ì´ê³  SearchAdVOì— ì €ì¥
+	             while (rs.next()) {
+	                 sVO = new SearchAdVO();
+	                 sVO.setJobNum(rs.getInt("JOB_NUM"));
+	                 sVO.setcName(rs.getString("name"));
+	                 sVO.setTitle(rs.getString("TITLE"));
+	                 sVO.setInputDate(rs.getDate("INPUT_DATE"));
+	                 sVO.setEndDate(rs.getDate("END_DATE"));
+	                 sVO.setTotalApply(rs.getInt("TOTAL_APPLY"));
+	                 list.add(sVO);
+	             }//end while
+	             
+	             
+	             
+	         }else { //ì…ë ¥ëœ ê¸°ì—…ëª…ìœ¼ë¡œ ê¸°ì—… ê³µê³  í˜„í™©ì„ select
+	            
+	         
+	         StringBuilder selectAd = new StringBuilder();
+	         
+	            selectAd.append("SELECT job_ad.JOB_NUM, name, TITLE, INPUT_DATE, END_DATE, COUNT(CASE WHEN apply.cancel = 'NC' THEN user_id END) as TOTAL_APPLY ")
+	                 .append("FROM job_ad ")
+	                 .append("LEFT OUTER JOIN apply ON job_ad.job_num = apply.job_num ")
+	                 .append("WHERE name = ? and trunc(END_DATE) < trunc(sysdate) ")
+	                 .append("GROUP BY job_ad.JOB_NUM, name, TITLE, INPUT_DATE, END_DATE   ")
+	                  .append("order by trunc(end_date)");
+	               
+	            
+	               pstmt=con.prepareStatement(selectAd.toString());
+	               pstmt.setString(1, cName2);
+	         
+	               rs=pstmt.executeQuery();
+	         
+	         SearchAdVO sVO=null;
+	          // ResultSetì„ ë°˜ë³µí•˜ì—¬ ê²°ê³¼ë¥¼ ì½ì–´ë“¤ì´ê³  SearchAdVOì— ì €ì¥
+	          while (rs.next()) {
+	              sVO = new SearchAdVO();
+	              sVO.setJobNum(rs.getInt("JOB_NUM"));
+	              sVO.setcName(rs.getString("name"));
+	              sVO.setTitle(rs.getString("TITLE"));
+	              sVO.setInputDate(rs.getDate("INPUT_DATE"));
+	              sVO.setEndDate(rs.getDate("END_DATE"));
+	              sVO.setTotalApply(rs.getInt("total_apply"));
+	              list.add(sVO);
+	          }//end while
+	             
+	          
+	         }//end else
+	            
+	         
+	         
+	         }finally {
+	            db.dbClose(rs, pstmt, con);
+	         }//end finally
+	         
+	         
+	            return list;
+	         
+	      }//selectAd
+	   
 	
-			
-			selectAds.append("SELECT job_ad.JOB_NUM, name, TITLE, INPUT_DATE, END_DATE, COUNT(user_id) as TOTAL_APPLY ")
-			  .append("FROM job_ad ")
-			  .append("LEFT OUTER JOIN apply ON job_ad.job_num = apply.job_num ")
-			  .append("where trunc(end_date) >= trunc(sysdate)	")
-			  .append("GROUP BY job_ad.JOB_NUM, name, TITLE, INPUT_DATE, END_DATE	")
-			  .append("order by trunc(end_date)"	);
-			
-			
-			
-			
-			pstmt=con.prepareStatement(selectAds.toString());
-			rs=pstmt.executeQuery();
-			
-			SearchAdVO sVO=null;
-			 // ResultSetÀ» ¹İº¹ÇÏ¿© °á°ú¸¦ ÀĞ¾îµéÀÌ°í SearchAdVO¿¡ ÀúÀå
-		    while (rs.next()) {
-		        sVO = new SearchAdVO();
-		        sVO.setJobNum(rs.getInt("JOB_NUM"));
-		        sVO.setcName(rs.getString("name"));
-		        sVO.setTitle(rs.getString("TITLE"));
-		        sVO.setInputDate(rs.getDate("INPUT_DATE"));
-		        sVO.setEndDate(rs.getDate("END_DATE"));
-		        sVO.setTotalApply(rs.getInt("TOTAL_APPLY"));
-		        list.add(sVO);
-		    }//end while
-		    
-		    
-		    
-		}else { //ÀÔ·ÂµÈ ±â¾÷¸íÀ¸·Î ±â¾÷ °ø°í ÇöÈ²À» select
-			
-		
-		StringBuilder selectAd = new StringBuilder();
-	
-		
-		
-		selectAd.append("SELECT job_ad.JOB_NUM, name, TITLE, INPUT_DATE, END_DATE, COUNT(user_id) as TOTAL_APPLY ")
-		  .append("FROM job_ad ")
-		  .append("LEFT OUTER JOIN apply ON job_ad.job_num = apply.job_num ")
-		  .append("WHERE trunc(end_date) >= trunc(sysdate) and name = ? ")
-		  .append("GROUP BY job_ad.JOB_NUM, name, TITLE, INPUT_DATE, END_DATE	")
-		  .append("order by trunc(end_date)");
-		
-				pstmt=con.prepareStatement(selectAd.toString());
-				pstmt.setString(1, cName);
-		
-				rs=pstmt.executeQuery();
-		
-		SearchAdVO sVO=null;
-		 // ResultSetÀ» ¹İº¹ÇÏ¿© °á°ú¸¦ ÀĞ¾îµéÀÌ°í SearchAdVO¿¡ ÀúÀå
-	    while (rs.next()) {
-	        sVO = new SearchAdVO();
-	        sVO.setJobNum(rs.getInt("JOB_NUM"));
-	        sVO.setcName(rs.getString("name"));
-	        sVO.setTitle(rs.getString("TITLE"));
-	        sVO.setTotalApply(rs.getInt("total_apply"));
-	        sVO.setInputDate(rs.getDate("INPUT_DATE"));
-	        sVO.setEndDate(rs.getDate("END_DATE"));
-	        list.add(sVO);
-	    }//end while
-		    
-	    
-		}//end else
-			
-		
-		
-		}finally {
-			db.dbClose(rs, pstmt, con);
-		}//end finally
-		
-		
-			return list;
-		
-	}//selectAd
 	
 	
-	
-	
-	//¸¶°¨µÈ ±¸ÀÎ°ø°í ÇöÈ²
-		public List<SearchAdVO> selectClosedAd(String cName2) throws SQLException {
-			
-			List<SearchAdVO> list=new ArrayList<SearchAdVO>();
-			
-			DbConnection db=DbConnection.getInstance();
-			Connection con=null;
-			PreparedStatement pstmt=null;
-			ResultSet rs=null;
-			
-			try {
-				//db¿¬°á
-				con=db.getConn();
-				
-				
-			if(cName2.isEmpty()) { //ÀÔ·ÂµÈ ±â¾÷¸íÀÌ ¾øÀ¸¸é ¸ğµç ±â¾÷°ø°í¸¦ select
-				
-				//¸¶°¨µÈ ¸ğµç ±â¾÷°ø°í ÇöÈ²À» selectÇÏ´Â Äõ¸®¹®
-				StringBuilder selectAds = new StringBuilder();
-				
-				
-				selectAds.append("SELECT job_ad.JOB_NUM, name, TITLE, INPUT_DATE, END_DATE, COUNT(user_id) as TOTAL_APPLY ")
-				  .append("FROM job_ad ")
-				  .append("LEFT OUTER JOIN apply ON job_ad.job_num = apply.job_num ")
-				  .append("WHERE trunc(END_DATE) < trunc(sysdate) ")
-				  .append("GROUP BY job_ad.JOB_NUM, name, TITLE, INPUT_DATE, END_DATE	")
-				  .append("order by trunc(end_date)");
-				
-				
-				
-				pstmt=con.prepareStatement(selectAds.toString());
-				rs=pstmt.executeQuery();
-				
-				SearchAdVO sVO=null;
-				 // ResultSetÀ» ¹İº¹ÇÏ¿© °á°ú¸¦ ÀĞ¾îµéÀÌ°í SearchAdVO¿¡ ÀúÀå
-			    while (rs.next()) {
-			        sVO = new SearchAdVO();
-			        sVO.setJobNum(rs.getInt("JOB_NUM"));
-			        sVO.setcName(rs.getString("name"));
-			        sVO.setTitle(rs.getString("TITLE"));
-			        sVO.setInputDate(rs.getDate("INPUT_DATE"));
-			        sVO.setEndDate(rs.getDate("END_DATE"));
-			        sVO.setTotalApply(rs.getInt("TOTAL_APPLY"));
-			        list.add(sVO);
-			    }//end while
-			    
-			    
-			    
-			}else { //ÀÔ·ÂµÈ ±â¾÷¸íÀ¸·Î ±â¾÷ °ø°í ÇöÈ²À» select
-				
-			
-			StringBuilder selectAd = new StringBuilder();
-			
-				selectAd.append("SELECT job_ad.JOB_NUM, name, TITLE, INPUT_DATE, END_DATE, COUNT(user_id) as TOTAL_APPLY ")
-					  .append("FROM job_ad ")
-					  .append("LEFT OUTER JOIN apply ON job_ad.job_num = apply.job_num ")
-					  .append("WHERE name = ? and trunc(END_DATE) < trunc(sysdate) ")
-					  .append("GROUP BY job_ad.JOB_NUM, name, TITLE, INPUT_DATE, END_DATE")
-						.append("order by trunc(end_date)");
-					
-				
-					pstmt=con.prepareStatement(selectAd.toString());
-					pstmt.setString(1, cName2);
-			
-					rs=pstmt.executeQuery();
-			
-			SearchAdVO sVO=null;
-			 // ResultSetÀ» ¹İº¹ÇÏ¿© °á°ú¸¦ ÀĞ¾îµéÀÌ°í SearchAdVO¿¡ ÀúÀå
-		    while (rs.next()) {
-		        sVO = new SearchAdVO();
-		        sVO.setJobNum(rs.getInt("JOB_NUM"));
-		        sVO.setcName(rs.getString("name"));
-		        sVO.setTitle(rs.getString("TITLE"));
-		        sVO.setInputDate(rs.getDate("INPUT_DATE"));
-		        sVO.setEndDate(rs.getDate("END_DATE"));
-		        sVO.setTotalApply(rs.getInt("total_apply"));
-		        list.add(sVO);
-		    }//end while
-			    
-		    
-			}//end else
-				
-			
-			
-			}finally {
-				db.dbClose(rs, pstmt, con);
-			}//end finally
-			
-			
-				return list;
-			
-		}//selectAd
-	
-	
-	
-	
-		//0421 ÁøÈ£
-		   //±¸ÀÎ°ø°í µî·ÏÇÏ±â Àü ±â¾÷¸í Á¶È¸ (select)
+		//0421 ï¿½ï¿½È£
+		   //ï¿½ï¿½ï¿½Î°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ (select)
 		   public boolean selectFindcName(String cName)throws SQLException{
 		      boolean resultFlag=false;
 		      
 		      DbConnection dbCon=DbConnection.getInstance();
 		      Connection con=null;
 		      PreparedStatement pstmt=null;
-		      //DbConnection.java Å¬·¡½º °´Ã¼È­ÇÏ¿© »ç¿ë
-		      //¿À¶óÅ¬¿¡ ¿¬°áÇÏ´Â ÄÚµå 3ÁÙ
+		      //DbConnection.java Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼È­ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½
+		      //ï¿½ï¿½ï¿½ï¿½Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Úµï¿½ 3ï¿½ï¿½
 		      
 		   try {   
-		   //3. Connection ¾ò±â
+		   //3. Connection ï¿½ï¿½ï¿½
 		      con=dbCon.getConn();
-		   //4. Äõ¸®¹® »ı¼º°´Ã¼ ¾ò±â
+		   //4. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½
 		      StringBuilder sb=new StringBuilder();
 		      sb
-		      //num°ú inputdate
+		      //numï¿½ï¿½ inputdate
 		      .append(" select name    ")
 		      .append(" from   corp    ")
-		      .append(" where  name= ? "); //ÀÔ·ÂÇÑ ±â¾÷¸í°ú DB¿¡ µî·ÏµÇ¾î ÀÖ´Â ±â¾÷¸íÀÌ °°Àº Á¶°Ç
+		      .append(" where  name= ? "); //ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ DBï¿½ï¿½ ï¿½ï¿½ÏµÇ¾ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		      
 		      pstmt=con.prepareStatement(sb.toString());
 		      
-		   //5. ¹ÙÀÎµå º¯¼ö °ª ¼³Á¤
+		   //5. ï¿½ï¿½ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		      pstmt.setString(1, cName);
 		      
 		      
-		   //6. Äõ¸®¹® ¼öÇà ÈÄ °á°ú ¾ò±â => int·Î ¼³Á¤ÇÏ¿© DB¿¡ °ªÀÌ Á¸ÀçÇÏ´ÂÁö ¿©ºÎ È®ÀÎÇÏ±â
+		   //6. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ => intï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ DBï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Ï±ï¿½
 		      int result=pstmt.executeUpdate();
 		      
 		      resultFlag=result > 0;
 		      
 		   }finally {
-		   //7. ¿¬°á ²÷±â
+		   //7. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		      dbCon.dbClose(null, pstmt, con);
 		   }//end finally
 		   
@@ -416,23 +416,23 @@ public class JobAdDAO {
 		}//selectFindcName
 		   
 		   
-		   //±¸ÀÎ°ø°í µî·Ï
+		   //ï¿½ï¿½ï¿½Î°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 		   public void insertAd (JobAdNewVO jVO) throws SQLException{
-		      //ÁøÈ£ 0416
+		      //ï¿½ï¿½È£ 0416
 
 		         DbConnection dbCon=DbConnection.getInstance();
 		         Connection con=null;
 		         PreparedStatement pstmt=null;
-		         //DbConnection.java Å¬·¡½º °´Ã¼È­ÇÏ¿© »ç¿ë
-		         //¿À¶óÅ¬¿¡ ¿¬°áÇÏ´Â ÄÚµå 3ÁÙ
+		         //DbConnection.java Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼È­ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½
+		         //ï¿½ï¿½ï¿½ï¿½Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Úµï¿½ 3ï¿½ï¿½
 		         
 		      try {   
-		      //3. Connection ¾ò±â
+		      //3. Connection ï¿½ï¿½ï¿½
 		         con=dbCon.getConn();
-		      //4. Äõ¸®¹® »ı¼º°´Ã¼ ¾ò±â
+		      //4. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½
 		         StringBuilder sb=new StringBuilder();
 		         sb
-		         //num°ú inputdate
+		         //numï¿½ï¿½ inputdate
 		         .append(" insert into job_ad (name, title, career, education, empform, sal, area, "
 		               + "work_hours, recruit_field, description, job_num, recruit_people,"
 		               + "start_date, end_date, input_date) ")
@@ -441,7 +441,7 @@ public class JobAdDAO {
 		         pstmt=con.prepareStatement(sb.toString());
 		         
 		         
-		      //5. ¹ÙÀÎµå º¯¼ö °ª ¼³Á¤
+		      //5. ï¿½ï¿½ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		         pstmt.setString(1, jVO.getcName());
 		         pstmt.setString(2, jVO.getTitle());
 		         pstmt.setString(3, jVO.getCareer());
@@ -456,11 +456,11 @@ public class JobAdDAO {
 		         pstmt.setDate(12, jVO.getStartDate());
 		         pstmt.setDate(13, jVO.getEndDate());
 		         
-		      //6. Äõ¸®¹® ¼öÇà ÈÄ °á°ú ¾ò±â => void·Î ¼³Á¤ÇÏ¿© ¹İÈ¯ ÇÊ¿ä ¾øÀ½
+		      //6. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ => voidï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½È¯ ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 		         pstmt.executeUpdate();
 		         
 		      }finally {
-		      //7. ¿¬°á ²÷±â
+		      //7. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		         dbCon.dbClose(null, pstmt, con);
 		      }//end finally
 		      
@@ -469,7 +469,7 @@ public class JobAdDAO {
 	
 	
 
-	// ±¸ÀÎ°ø°í ¼öÁ¤ - 1. ÀÏ´Ü °ø°í¹øÈ£·Î ³»¿ëÀ» selectÇØ¼­ ºÒ·¯¿À±â
+	// ï¿½ï¿½ï¿½Î°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 1. ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ selectï¿½Ø¼ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
 	public ModifyAdVO selectAdContent(int jobNum) throws SQLException {
 
 		ModifyAdVO mVO=null;
@@ -481,11 +481,11 @@ public class JobAdDAO {
 		ResultSet rs=null;
 		
 		try {
-			//db¿¬°á
+			//dbï¿½ï¿½ï¿½ï¿½
 			con=db.getConn();
 		
 		
-		//°ø°í¹øÈ£·Î select	
+		//ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ select	
 		StringBuilder selectAdContent = new StringBuilder();
 		selectAdContent.append("SELECT JOB_NUM, name, TITLE, CAREER, EDUCATION, EMPFORM, SAL, AREA, WORK_HOURS, START_DATE, END_DATE, RECRUIT_FIELD, RECRUIT_PEOPLE, DESCRIPTION ")
         .append("FROM JOB_AD ")
@@ -498,7 +498,7 @@ public class JobAdDAO {
 
 	    
 
-		// ResultSetÀ» ¹İº¹ÇÏ¿© °á°ú¸¦ ÀĞ¾îµéÀÌ°í ModifyAdVO¿¡ ÀúÀå
+		// ResultSetï¿½ï¿½ ï¿½İºï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ğ¾ï¿½ï¿½ï¿½Ì°ï¿½ ModifyAdVOï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		
 		if (rs.next()) {
 			mVO = new ModifyAdVO();
@@ -513,7 +513,7 @@ public class JobAdDAO {
 			mVO.setWorkHours(rs.getString("WORK_HOURS"));
 			mVO.setStartDate(rs.getDate("START_DATE"));
 			mVO.setEndDate(rs.getDate("END_DATE"));
-			mVO.setRecruitField(rs.getString("RECRUIT_FIELD")); // ¼öÁ¤µÈ ºÎºĞ
+			mVO.setRecruitField(rs.getString("RECRUIT_FIELD")); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½
 			mVO.setRecruitPeople(rs.getInt("RECRUIT_PEOPLE"));
 			mVO.setDescription(rs.getString("DESCRIPTION"));
 			}
@@ -524,13 +524,13 @@ public class JobAdDAO {
 		}//end finally
 		
 		
-		return mVO; //¿ä°Å¸¦ ¼öÁ¤ È­¸é¿¡ »Ñ·ÁÁÙ °Í
+		return mVO; //ï¿½ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½ï¿½ È­ï¿½é¿¡ ï¿½Ñ·ï¿½ï¿½ï¿½ ï¿½ï¿½
 		
 	}//selectAdContent
 	
 	
 	
-	// ±¸ÀÎ°ø°í ¼öÁ¤ - 2. ¼öÁ¤ÇÑ °ø°í ³»¿ëÀ» updateÇÏ±â
+	// ï¿½ï¿½ï¿½Î°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 2. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ updateï¿½Ï±ï¿½
 	public int updateAd(ModifyAdVO mVO) throws SQLException {
 		
 		int cnt=0;
@@ -541,17 +541,17 @@ public class JobAdDAO {
 		ResultSet rs=null;
 		
 		try {
-			//db¿¬°á
+			//dbï¿½ï¿½ï¿½ï¿½
 			con=db.getConn();
 		
 			
-			// update Äõ¸®¹® ÀÛ¼º
+			// update ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½
 			StringBuilder updateAdContent = new StringBuilder();
 			updateAdContent.append("UPDATE JOB_AD ")
 			        .append("SET TITLE=?, CAREER=?, EDUCATION=?, DESCRIPTION=?, EMPFORM=?, SAL=?, AREA=?, WORK_HOURS=?, START_DATE=?, END_DATE=?, RECRUIT_FIELD=?, RECRUIT_PEOPLE=? ")
 			        .append("WHERE JOB_NUM = ?");
 
-			// prepare statement »ı¼º
+			// prepare statement ï¿½ï¿½ï¿½ï¿½
 			pstmt = con.prepareStatement(updateAdContent.toString());
 			
 			pstmt.setString(1, mVO.getTitle());
@@ -568,7 +568,7 @@ public class JobAdDAO {
 			pstmt.setInt(12, mVO.getRecruitPeople());
 			pstmt.setInt(13, mVO.getJobNum());
 
-			// Äõ¸® ½ÇÇà
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			cnt = pstmt.executeUpdate();
 			
 			
@@ -576,7 +576,7 @@ public class JobAdDAO {
 			db.dbClose(rs, pstmt, con);
 		}//end finally
 		
-		return cnt; //¼º°ø ½Ã 1, ½ÇÆĞ ½Ã 0
+		return cnt; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 1, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 0
 		
 	}//updateAd
 
@@ -584,7 +584,7 @@ public class JobAdDAO {
 	
 	
 	
-	//±¸ÀÎ°ø°í »èÁ¦ (¸Å°³º¯¼ö - °ø°í¹øÈ£)
+	//ï¿½ï¿½ï¿½Î°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½È£)
 	public int deleteAd(int jobNum) throws SQLException {
 		
 		int cnt = 0;
@@ -607,7 +607,7 @@ public class JobAdDAO {
 			
 		}//end finally
 		
-		return cnt; // ¼º°øÀûÀ¸·Î ¼öÇàµÇ¸é »èÁ¦µÈ ÇàÀÇ ¼ö°¡ ¹İÈ¯µÇ°í, ½ÇÆĞÇÏ¸é 0ÀÌ ¹İÈ¯
+		return cnt; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ç°ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ 0ï¿½ï¿½ ï¿½ï¿½È¯
 	}//deleteAd
 	
 	

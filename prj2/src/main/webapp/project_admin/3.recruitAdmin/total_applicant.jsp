@@ -39,6 +39,7 @@
 .top{ background-color: #323743;  }
 th, tr{ border:1px solid #323743; border:none; border-bottom:0.5px solid #CCC }
 td{ text-align:center; font-family:맑은 고딕; font-size:14px; border-bottom:0.2px solid #CCC }
+tr.hover:hover{background-color: #D5E3E3;}
 
 
 
@@ -293,7 +294,7 @@ if(list.size()==0){ //검색된 결과가 없으면
 %>
 
 <c:forEach var="aVO" items="${list}" varStatus="i">
-<tr>
+<tr class="hover">
    <td><c:out value="${i.count }"/></td>
    <%-- <td><c:out value="${aVO.cName}" /></td>기업명 --%>
    <%-- <td><a href="http://localhost/prj2/project_admin/4.resumeView/resumeView.jsp?id=${aVO.id}&rNum=${aVO.rNum}&applyNum=${aVO.applyNum}"> --%>

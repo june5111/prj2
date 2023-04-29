@@ -53,10 +53,10 @@ select::-ms-expand {
 }
 
 .select {
-position: absolute;
+	position: absolute;
     margin-top: 10px;
     bottom: 0px;
-  	width: 130px;
+  	width: 150px;
 	height: 35px;
   	padding: 5px 30px 5px 10px;
   	border-radius: 4px;

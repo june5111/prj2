@@ -235,7 +235,10 @@ $(function(){
 			return;
 		}// end if
 		
-		// + 대표자명
+		if($("#repName").val() == "") {
+			alert("대표자는 필수 입력입니다.");
+			return;
+		}
 		
 		if($("#emp").val() == "") {
 			alert("사원수는 필수 입력입니다.");

@@ -252,6 +252,10 @@ $(function(){
 			return; // 폼 제출을 중단합니다.
 		}// end if 
 		
+		if($("#repName").val() == "") {
+			alert("대표자는 필수 입력입니다.");
+			return;
+		}
 		//+ 대표자명
 		
 		if($("#emp").val() == "") {

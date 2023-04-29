@@ -572,7 +572,7 @@ $(function() {
 		<div id="detail">
 			<p id="detailtitles">상세요강</p>
 			<label class="input-file-button" for="file">첨부파일</label>
-     		 <input type="file" id="file" name="file"/>
+     		 <input type="file" id="file" name="file" style="display:none"/>
 			<p class="p">주요 업무, 자격 사항, 사용하고 있는 기술 스택, 우대사항, 혜택 및 복지, 기타 사항 등의 내용을 넣어 작성해주세요.</p>
 			<input type="text" class="contxtR" id="description" readonly="readonly" name="description" value="<c:out value="${mVO.description}"/>"/>
 			<input type="hidden" class="contxtR" id="descriptionHidden" readonly="readonly" name="descriptionHidden" value="<c:out value="${mVO.description}"/>"/>
