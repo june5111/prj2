@@ -252,11 +252,11 @@ $(function(){
 			return; // 폼 제출을 중단합니다.
 		}// end if 
 		
-		if($("#repName").val() == "") {
-			alert("대표자는 필수 입력입니다.");
+		if ($('#repP tr').length == 0) { // 정 어려우면 유효성을 버리는게 맞는 것 같아 어차피 진호가 싱ㄴ을 하니까 대배웅야
+			alert('대표자는 필수 입력입니다.');
 			return;
 		}
-		//+ 대표자명
+		//+ 대표자명 */
 		
 		if($("#emp").val() == "") {
 			alert("사원수는 필수 입력입니다.");
@@ -439,7 +439,7 @@ function img() {
 								<input type="text" class="text" style="width:250px" placeholder="내용을 입력해주세요" name="repName" id="repName"> 
 								<input type="button" value="추가" name="addBtn" id="addBtn"><br><br>
 								<p id="repP"></p>
-								<table>
+								<table id="repTable">
 									<!-- <tr id="repTr">
 										<td>대표자명</td>
 										<td><input type="button" value="x"/></td>

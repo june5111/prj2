@@ -186,7 +186,7 @@ $(function(){
 	    }
 	    
 	    var repNameHtml = '<tr class="repTr">' + result + '</tr>';
-	    $("#repP").append(repNameHtml);
+	    $("#repTable").append(repNameHtml);
 	    
 	    /* $(".delName").click(function() {
 	        var index = $(".delName").index(this); // 삭제 버튼의 인덱스
@@ -210,10 +210,6 @@ $(function(){
 		acDAO.deleteRepresent(corpNum);
 	}
 	
-	function addRepresent() {
-		acDAO.updateRepresent(acVO);
-	}
-	
 	$("#modifyBtn").click(function(){
 		if($("#name").val() == "") {
 			alert("기업명은 필수 입력입니다.");
@@ -235,10 +231,10 @@ $(function(){
 			return;
 		}// end if
 		
-		if($("#repName").val() == "") {
-			alert("대표자는 필수 입력입니다.");
+		 if ($('#repTable tr').length == 0) {
+			alert('대표자는 필수 입력입니다.');
 			return;
-		}
+		} 
 		
 		if($("#emp").val() == "") {
 			alert("사원수는 필수 입력입니다.");
@@ -453,7 +449,6 @@ function img() {
 											<input type="text" class="text" style="width: 250px" placeholder="" name="repName" id="repName" value="" /> 
 											<input type="button" value="추가" name="addBtn" id="addBtn">
 											
-											<p id="repP"></p> 
 											<table id="repTable">
 												<%
 												String[] reps = acVO.getRepresentativeName();
