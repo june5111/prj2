@@ -143,7 +143,7 @@ function change_page(cName, cTitle, jobNum) {
                         <div class="txResumeBx">
                             <p class="jkResume">
                                 <input type="hidden" name="SelAttachFileName" id="SelAttachFileName" />
-                                <a href="http://localhost/prj2/project_user/4.resume/1.resume_modify.jsp?rNum=${ list.get(0).rNum }" id="devResumeTitle" target="_new">${ list.get(0).title }</a>
+                                <a href="http://localhost/prj2/project_user/4.resume/resume_modify.jsp?rNum=${ list.get(0).rNum }" id="devResumeTitle" target="_new">${ list.get(0).title }</a>
                             </p>
                         </div>
 

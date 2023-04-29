@@ -28,6 +28,7 @@ int result=0;
 try{
 if(name.equals(userName)) {
 result = uDAO.updateQuit(userId);
+uDAO.deleteResume(userId);
 }else {
 	%>
 	<script>

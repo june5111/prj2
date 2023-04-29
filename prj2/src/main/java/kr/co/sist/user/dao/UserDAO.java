@@ -408,10 +408,37 @@ public class UserDAO {
 		}finally {
 			dbCon.dbClose(null, pstmt, con);
 			
-		}//end finally
+		}//end finally0
 		
 		return result;
 	}//updateQuit
+	
+	public void deleteResume(String userId)throws SQLException {
+		
+		DbConnection dbCon=DbConnection.getInstance();
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		
+		try {
+			con=dbCon.getConn();
+			
+			StringBuilder deleteResume = new StringBuilder();
+			deleteResume
+			.append("   delete   ")
+			.append("   from  resume   ")
+			.append("   where  resume.user_id=?   ");
+			
+			pstmt=con.prepareStatement(deleteResume.toString());
+			
+			pstmt.setString(1, userId);
+			
+			pstmt.executeQuery();
+			
+		}finally {
+			dbCon.dbClose(null, pstmt, con);
+		}//end finally
+		
+	}//deleteResume
 	
 	
 	

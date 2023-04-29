@@ -14,7 +14,7 @@
 <style type="text/css">
 #whole{ width:1000px; height:1600px;  margin: 0px auto; }
 #detailText{ position:relative; top:70px;  left:20px; width:100px; height:50px; background-color: #FFF }
-#detail{ position: relative; background-color: #333; top: 70px; left: 20px; width:960px; height:600px; }
+#detail{ position: relative; top: 70px; left: 20px; width:960px; min-height:600px; margin-left : 100px;  }
 #end{ position:relative; top:150px; left:0px; }
 .devApplyBtn{ position:absolute; left:220px }
 .homepage1{ position:absolute; top:0px; left:420px; border: none; background-color:#FF7E00; width:150px; height:55px; color:#FFF; font-size: 16px; font-family: "맑은 고딕" }
@@ -87,7 +87,7 @@ function openPop(name, title, jobNum) {
 	var nowDate = new Date();
 	var endDate = new Date($("#end_date").text());
 	
-	if(nowDate > endDate+1) {
+	if(nowDate > endDate) {
 		alert("해당공고는 마감되었습니다.");
 		return;
 	}//end if

@@ -19,16 +19,12 @@ aiVO.setJobNum(jobNum);
 ApplyResumeDAO arDAO=new ApplyResumeDAO();
 String resultFlag="";
 try{
-		System.out.println("111111111111111"+resultFlag);
 	
 	resultFlag=arDAO.selectCancel(userId, jobNum);
 	if(resultFlag.equals("C")) {
-		System.out.println("222222222222222"+resultFlag);
 		int r= arDAO.deleteApply(userId, jobNum);
 		
-		System.out.println("rrrrrrrrrrrrrrr"+r);
 	}//end if
-		System.out.println("33333333333333"+resultFlag);
 			
 	
 arDAO.insertApply(aiVO);

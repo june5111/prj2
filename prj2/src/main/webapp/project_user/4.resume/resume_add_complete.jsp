@@ -237,10 +237,10 @@ rDAO.insertEducation(eVO);
 
     <div class="resumeHeader">
         <div class="container">
-            <a href="https://www.jobkorea.co.kr/" class="logo"><img src="http://localhost/prj2/images/devplanet_logo.png" style="width: 100px; height: auto;" ></a>
+            <a href="http://localhost/prj2/project_user/1.main/main_page_loged.jsp" class="logo"><img src="http://localhost/prj2/images/devplanet_logo.png" style="width: 100px; height: auto;" ></a>
             <div class="links">
-                <a href="https://www.jobkorea.co.kr/User/Mypage" class="link linkHome">개인회원 홈</a>
-                <a href="https://www.jobkorea.co.kr/User/ResumeMng" class="link linkManage">이력서 관리</a>
+                <a href="http://localhost/prj2/project_user/1.main/main_page_loged.jsp" class="link linkHome">개인회원 홈</a>
+                <a href="http://localhost/prj2/project_user/4.resume/resume_present.jsp" class="link linkManage">이력서 관리</a>
             </div>
         </div>
     </div>

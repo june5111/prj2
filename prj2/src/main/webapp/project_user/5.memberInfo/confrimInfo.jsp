@@ -45,6 +45,11 @@
 $(function() {
 	
 	$("#okBtn").click(function(){
+		
+		if($("#pass").val()=="") {
+			alert("비밀번호를 입력해 주세요");
+			return;
+		}//end if
 	
 		$("#con_frm").submit();
 		
@@ -134,7 +139,7 @@ $(function() {
 								<th scope="row"><label for="lb_pw_1">비밀번호</label></th>
 								<td>
 									<div class="mbrHelpWrap">		
-										<input type="password" id="pass" name="pass" style="width:200px;" class="ipText" maxlength="20" onKeyPress="if(event.keyCode==13) Pwd_ChkReg();" onkeydown="blank_key_check()">
+										<input type="password" id="pass" name="pass" style="width:200px;" class="ipText" maxlength="20" >
 										<div style="left:215px;display:none;" class="mbrTplLayer mbrTplLayer_1 mbrLayerHelp" id="CautionResult1" name="CautionResult">
 											<span class="arrow"></span>
 										</div>

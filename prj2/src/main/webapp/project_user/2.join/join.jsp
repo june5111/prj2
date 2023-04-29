@@ -126,6 +126,13 @@ $(function() {
 			return;
 		}//end if
 		
+		 var textValue = $("#email").val();
+		 var emailCheck = /\S+@\S+\.\S+/;
+		  if (!emailCheck.test(textValue)) {
+		    alert("이메일을 확인 해 주세요.");
+		    return;
+		  }//end if
+		
 		
 		
 		$("#joinFrm").submit();

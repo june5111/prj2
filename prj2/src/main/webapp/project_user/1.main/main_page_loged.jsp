@@ -221,9 +221,7 @@ function logout() {
          <div class="footer__service">
             <h3 class="blind">잡코리아 서비스 링크</h3>
             <ul>
-                <li><a href="http://211.63.89.139/prj3/project_user/1.main/main_page.jsp" target="_blank">회사소개</a></li>
-                <li><a href="https://www.jobkorea.co.kr/service_jk/provision/provision_gg.asp" target="_blank">이용약관</a></li>
-                <li><a href="https://www.jobkorea.co.kr/service/PolicyPrivacy" target="_blank"><strong>개인정보처리방침</strong></a></li>
+                <li><a href="http://localhost/prj2/project_user/1.main/main_page.jsp" target="_blank">회사소개</a></li>
             </ul>
         </div>  
         

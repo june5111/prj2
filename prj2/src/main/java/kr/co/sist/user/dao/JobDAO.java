@@ -31,7 +31,7 @@ public class JobDAO {
 			selectCorp
 			.append("   select  corp.logo, corp.name, job_ad.title, job_num           ")
 			.append("   from   corp, job_ad                        ")
-			.append("   where  corp.name=job_ad.name        ");
+			.append("   where  corp.name=job_ad.name and TRUNC(SYSDATE) - job_ad.end_date < 0       ");
 			
 			pstmt=con.prepareStatement(selectCorp.toString());
 			
@@ -78,7 +78,7 @@ public class JobDAO {
 			selectCorp
 			.append("   select logo, title, job_ad.name, recruit_field, job_num   ")
 			.append("   from job_ad, corp   ")
-			.append("   where job_ad.name=corp.name   ");
+			.append("   where job_ad.name=corp.name and TRUNC(SYSDATE) - job_ad.end_date < 0   ");
 			
 			if("".equals(result)) { //회사명이 아닌경우
 			selectCorp
