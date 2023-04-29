@@ -729,7 +729,7 @@ pageContext.setAttribute("rNum", rNum);
 					
 		<!-- 폼태그 -->
 		<form method="post" name="postFrm" enctype="multipart/form-data" id="userFrm"
-				action="resume_modify_complete.jsp?rNum=${ rNum }">
+				action="resume_modify_process.jsp?rNum=${ rNum }">
 			<div class="resumeWrapper">
 				<div class="resumeContainer">
 					<div class="formWrap formWrapProfile">

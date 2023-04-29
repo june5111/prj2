@@ -25,7 +25,7 @@ import kr.co.sist.user.vo.UserUpdateVO;
 public class ResumeDAO {
 	
 	
-	//이력서등록page에 회원정보 insert //2023-04-21
+	//이력서등록page에 이력서 insert //2023-04-21
 	public void insertResume(ResumeInsertVO riVO) throws SQLException {
 		
 		Connection con = null;

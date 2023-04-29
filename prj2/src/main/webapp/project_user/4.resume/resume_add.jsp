@@ -192,9 +192,9 @@ $(function() {
 		}
 		
 		//희망연봉
-		if($("#career").val() == ""){
+		if($("#sal").val() == ""){
 			alert("희망연봉을 입력해 주세요.");
-			$("#career").focus();
+			$("#sal").focus();
 			return;
 		}
 		
@@ -534,7 +534,7 @@ pageContext.setAttribute("imageFileInput", udVO.getImg());
 					
 		<!-- multipart/form-data 폼태그 -->
 		<form method="post" name="postFrm" enctype="multipart/form-data" id="userFrm"
-				action="resume_add_complete.jsp">
+				action="resume_add_process.jsp">
 			<div class="resumeWrapper">
 			
 				<div class="resumeContainer">
