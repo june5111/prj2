@@ -155,7 +155,7 @@ public class ApplyDAO {
 			StringBuilder selectCountR = new StringBuilder();
 			selectCountR.append("select count(r_num) ")
 				    .append("from apply ")
-				    .append("where job_num = ? and read_state = 'RD' AND a.cancel != 'C'  ");
+				    .append("where job_num = ? and read_state = 'RD'  ");
 			
 			
 			pstmt=con.prepareStatement(selectCountR.toString());
@@ -202,7 +202,7 @@ public class ApplyDAO {
 				StringBuilder selectCountR = new StringBuilder();
 				selectCountR.append("select count(r_num) ")
 					    .append("from apply ")
-					    .append("where job_num = ? and read_state = 'URD' AND a.cancel != 'C'  ");
+					    .append("where job_num = ? and read_state = 'URD' ");
 				
 				
 				pstmt=con.prepareStatement(selectCountR.toString());
@@ -244,7 +244,7 @@ public class ApplyDAO {
 			StringBuilder selectCountR = new StringBuilder();
 			selectCountR.append("select count(apply_num) ")
 				    .append("from apply ")
-				    .append("where job_num = ?  AND a.cancel != 'C' ");
+				    .append("where job_num = ?  ");
 			
 			
 			pstmt=con.prepareStatement(selectCountR.toString());
