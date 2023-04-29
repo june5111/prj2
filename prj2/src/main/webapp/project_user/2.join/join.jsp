@@ -166,10 +166,11 @@ $(function() {
 	
 	$("#lb_chk_privacyOptional").on('change',function() {
 		
-		 if ($("#lb_chk_privacyOptional").is(':checked')) {
-			 $("#lb_chk_privacyOptional").val('Y');
+		if ($("#lb_chk_privacyOptional").prop('checked')) {
+				  $("#lb_chk_privacyOptional").val('t');
 			  }else {
-				  $("#lb_chk_privacyOptional").val('N');
+			 $("#lb_chk_privacyOptional").val('r');
+				 
 			  }//end else
 		
 	});//on

@@ -26,6 +26,7 @@ request.setCharacterEncoding("UTF-8");
 		MultipartRequest mr = new MultipartRequest(request, saveDirectory.getAbsolutePath(), totalMaxSize, "UTF-8", 
 				new DefaultFileRenamePolicy());
 		// 3. FileUpload Component를 사용하여 파라미터를 받는다.
+		
 		String originalName = mr.getOriginalFileName("file");
 		String newFileName = mr.getFilesystemName("file");
 		

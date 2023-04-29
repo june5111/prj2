@@ -45,7 +45,7 @@ public class ApplyDAO {
 			.append("JOIN user_table u ON a.user_id = u.user_id ")
 			.append("JOIN resume r ON a.r_num = r.r_num ")
 			.append("JOIN education e ON e.r_num = r.r_num ")
-			.append("WHERE ja.job_num = ? ")
+			.append("WHERE ja.job_num = ? AND a.cancel != 'C' ")
 			.append("GROUP BY a.apply_num, ja.job_num, ja.name, ja.title, r.r_num, r.TITLE, u.name, r.CAREER, a.read_state, a.inspec_date, u.user_id ")
 			.append("order by trunc(inspec_date)"	);
 			
@@ -88,7 +88,7 @@ public class ApplyDAO {
 			.append("JOIN user_table u ON a.user_id = u.user_id ")
 			.append("JOIN resume r ON a.r_num = r.r_num ")
 			.append("JOIN education e ON e.r_num = r.r_num ")
-			.append("WHERE ja.job_num = ? AND u.name = ? ")
+			.append("WHERE ja.job_num = ? AND u.name = ? AND a.cancel != 'C'  ")
 			.append("GROUP BY a.apply_num, ja.job_num, ja.name, ja.title, r.r_num, r.TITLE, u.name, r.CAREER, a.read_state, a.inspec_date, u.user_id ")
 			.append("order by trunc(inspec_date)"	);		
 					
@@ -155,7 +155,7 @@ public class ApplyDAO {
 			StringBuilder selectCountR = new StringBuilder();
 			selectCountR.append("select count(r_num) ")
 				    .append("from apply ")
-				    .append("where job_num = ? and read_state = 'RD' ");
+				    .append("where job_num = ? and read_state = 'RD' AND a.cancel != 'C'  ");
 			
 			
 			pstmt=con.prepareStatement(selectCountR.toString());
@@ -202,7 +202,7 @@ public class ApplyDAO {
 				StringBuilder selectCountR = new StringBuilder();
 				selectCountR.append("select count(r_num) ")
 					    .append("from apply ")
-					    .append("where job_num = ? and read_state = 'URD' ");
+					    .append("where job_num = ? and read_state = 'URD' AND a.cancel != 'C'  ");
 				
 				
 				pstmt=con.prepareStatement(selectCountR.toString());
@@ -244,7 +244,7 @@ public class ApplyDAO {
 			StringBuilder selectCountR = new StringBuilder();
 			selectCountR.append("select count(apply_num) ")
 				    .append("from apply ")
-				    .append("where job_num = ? ");
+				    .append("where job_num = ?  AND a.cancel != 'C' ");
 			
 			
 			pstmt=con.prepareStatement(selectCountR.toString());
